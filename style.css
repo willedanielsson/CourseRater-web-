@@ -1,0 +1,18 @@
+.navigation{
+	
+}
+
+.navigation ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navigation li{
+	display: inline-block;
+}
+
+.navigation a{
+	display: block;
+	width: 60px;
+}
