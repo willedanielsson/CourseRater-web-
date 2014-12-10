@@ -3,38 +3,45 @@
 
 <head>
 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
 <script type="text/javascript" src="script.js"></script>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body ng-controller="mainController">
-<header>
-	<nav class="navigation">
-		<ul>
-			<li>
-				<a href="#">Home</a>
-			</li>
-		
-			<li>
-				<a href="#">Courses</a>
-			</li>
 
-			<li>
-				<a href="#">Test</a>
-			</li>
+<div class="content">
 
-		</ul>
+	<header>
+		<nav id="navigation">
+			<ul>
+				<li>
+					<a href="#">Home</a>
+				</li>
+			
+				<li>
+					<a href="#courses">Courses</a>
+				</li>
 
-	</nav>
-</header>
+				<li>
+					<a href="#about">About</a>
+				</li>
 
-<div id="main">
+				<li>
+					<a href="#contact">Contact</a>
+				</li>
+			</ul>
 
-<!--INSERT ANGUALR TEMPLATE HERE -->
+		</nav>
+		<div id="navigation_underline"></div>
+	</header>
 
-	{{ message }}
+	<div id="main">
 
+	<!--INSERT ANGUALR TEMPLATE HERE -->
+		<div ng-view></div>
+
+	</div>
 </div>
-
 </body>
 </html>

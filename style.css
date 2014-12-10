@@ -1,18 +1,56 @@
-.navigation{
-	
+@import url(http://fonts.googleapis.com/css?family=Capriola);
+body{
+
 }
 
-.navigation ul{
+.content{
+	margin-right: auto;
+	margin-left: auto;
+
+	width: 1000px;
+	border: 3px solid black;
+}
+
+#navigation{
+	height: 59px;
+	padding-bottom: 4px;
+
+	background-color: black;
+}
+#navigation_underline{
+	background-color: green;
+	height: 4px;
+	width: 100%;
+}
+
+#navigation ul{
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
-.navigation li{
-	display: inline-block;
+#navigation li{
+	display: inline;
+	float:left;
+	width: 130px;
+		margin-right: 4px;
+
+	  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+
+	background-color: green;
 }
 
-.navigation a{
+#navigation a{
+	text-decoration: none;
 	display: block;
-	width: 60px;
+
+	
+	text-align: center;
+	padding: 18px 0;
+
+	font-family: Capriola, Helvetica, sans-serif;
+	font-size: 25px;
+	color: #eeeeee;
 }
