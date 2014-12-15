@@ -3,4 +3,26 @@
 
 	<p>{{message}}</p>
 
+	<div class="input_holder">
+
+		<select ng-model="selectedCountry" ng-change="getUniversities">
+			<option ng-repeat="x in countries">
+				{{x}}
+			</option>	
+		</select>
+
+	</div>
+
+	<div class="input_holder">
+		<input class="input" id="university_input" type="text" ng-model="model_university_input" placeholder="University">
+	</div>
+
+	<div class="input_holder">
+		<input class="input" id="course_input" type="text" ng-model="model_course_input" placeholder="Course">	
+	</div>
+
+
+<div class="input_holder">
+	<button ng-onClick="click()"></button>
+</div>
 </div>

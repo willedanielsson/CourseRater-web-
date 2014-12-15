@@ -40,9 +40,42 @@ courseApp.controller('mainController', function($scope){
 	$scope.message = 'Hello world';
 });
 
+ courseApp.controller('courseController', function($scope, $http){
+	console.log("Går in i CourseController");
+	$scope.message = "Im the courses";
+
+
+	$http.get("http://localhost:8888/Production/getCountries.php").success(function(response){
+		console.log("Använder getCountries");
+		$scope.countries = response;
+	});
+
+  	$scope.getUniversities = function(){
+  		console.log("HEj");
+
+	}
+
+	$scope.click = function(){
+		console.log("Hej");
+	}
+
+
+	
+});
+/*
+
 courseApp.controller('courseController', function($scope){
 	$scope.message = 'Im the courses';
+
 });
+
+courseApp.controller('courseController', function($scope, $http){
+	$http.get("http://localhost:8888/Production/getCountries.php")
+	.success(function(response){
+		$scope.countries = response;
+	});
+});
+*/
 
 courseApp.controller('aboutController', function($scope){
 	$scope.message = 'Im all about the bass';
