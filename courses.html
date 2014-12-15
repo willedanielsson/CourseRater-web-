@@ -1,20 +1,26 @@
 <div class="courses">
-	<h1>Course page</h1>
+	<h1>Course page åäödas</h1>
 
 	<p>{{message}}</p>
 
 	<div class="input_holder">
 
-		<select ng-model="selectedCountry" ng-change="getUniversities">
-			<option ng-repeat="x in countries">
-				{{x}}
+		<select ng-model="model_selectedCountry" ng-change="getUniversities(model_selectedCountry)">
+			<option ng-repeat="country in countries">
+				{{country}}
 			</option>	
 		</select>
 
 	</div>
 
 	<div class="input_holder">
-		<input class="input" id="university_input" type="text" ng-model="model_university_input" placeholder="University">
+
+		<select ng-model="model_selectedUniversity" ng-change="getCourses(model_selectedUniversity)">
+			<option ng-repeat="university in universities">
+				{{university}}
+			</option>
+		</select>
+
 	</div>
 
 	<div class="input_holder">
@@ -23,6 +29,6 @@
 
 
 <div class="input_holder">
-	<button ng-onClick="click()"></button>
+	<button ng-click="click()">Tryck</button>
 </div>
 </div>

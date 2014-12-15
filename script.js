@@ -50,13 +50,16 @@ courseApp.controller('mainController', function($scope){
 		$scope.countries = response;
 	});
 
-  	$scope.getUniversities = function(){
-  		console.log("HEj");
-
+  	$scope.getUniversities = function(country){
+  		console.log("Valde"+country);
+  		$http.get("http://localhost:8888/Production/getUniversitiesForCountry.php").success(function(response){
+  			console.log("Hämtar unviersitet för"+country);
+  			$scope.universities = response;
+  		})
 	}
 
 	$scope.click = function(){
-		console.log("Hej");
+		console.log("Button click");
 	}
 
 
