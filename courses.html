@@ -24,7 +24,13 @@
 	</div>
 
 	<div class="input_holder">
-		<input class="input" id="course_input" type="text" ng-model="model_course_input" placeholder="Course">	
+	
+		<select ng-model="model_course_input">
+			<option ng-repeat="course in courses">
+				{{course}}
+			</option>
+		</select>
+		
 	</div>
 
 

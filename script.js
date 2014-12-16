@@ -45,17 +45,27 @@ courseApp.controller('mainController', function($scope){
 	$scope.message = "Im the courses";
 
 
-	$http.get("http://localhost:8888/Production/getCountries.php").success(function(response){
+	$http.get("http://www.ashiya.se/app/getCountries.php").success(function(response){
 		console.log("Använder getCountries");
 		$scope.countries = response;
 	});
 
   	$scope.getUniversities = function(country){
   		console.log("Valde"+country);
-  		$http.get("http://localhost:8888/Production/getUniversitiesForCountry.php").success(function(response){
+  		$http.get("http://www.ashiya.se/app/getUniversitiesForCountry.php?country="+country).success(function(response){
+  			console.log(response);
   			console.log("Hämtar unviersitet för"+country);
   			$scope.universities = response;
-  		})
+  		});
+	}
+
+	$scope.getCourses = function(university){
+		console.log("Valde university"+university);
+		$http.get("http://www.ashiya.se/app/getCoursesForUniversity.php?chosenUniversity="+university).success(function(response){
+			console.log(response);
+			console.log("Hämtar kurser för"+university);
+			$scope.courses = response;
+		})
 	}
 
 	$scope.click = function(){
