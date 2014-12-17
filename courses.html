@@ -1,48 +1,56 @@
 <div class="courses">
 
-	<div class="course_div" id="input">
+	<div id="course_selection">
 
-		<div class="input_holder">
-			<p>Find Course</p>
+		<div class="course_div" id="input">
 
-			<select id="select_country" ng-model="model_selectedCountry" ng-change="getUniversities(model_selectedCountry)">
-				<option value="" disabled selected>Select Country</option>
-				<option ng-repeat="country in countries">
-					{{country}}
-				</option>	
-			</select>
+			<div class="input_holder">
+				<p>Find Course</p>
 
+				<select id="select_country" ng-model="model_selectedCountry" ng-change="getUniversities(model_selectedCountry)">
+					<option value="" disabled selected>Select Country</option>
+					<option ng-repeat="country in countries">
+						{{country}}
+					</option>	
+				</select>
+
+			</div>
+
+			<div class="input_holder">
+
+				<select id="select_university" ng-model="model_selectedUniversity" ng-style=styleSelectUniversity ng-change="getCourses(model_selectedUniversity)" >
+					<option value="" disabled selected>Select University</option>
+					<option ng-repeat="university in universities">
+						{{university}}
+					</option>
+				</select>
+
+			</div>
+
+			<div class="input_holder">
+
+				<select id="select_course" ng-model="model_course_input" ng-style="styleSelectCourse" ng-change="clickedCourse()">
+					<option value="" disabled selected>Select Course</option>
+					<option ng-repeat="course in courses">
+						{{course}}
+					</option>
+				</select>
+
+			</div>
+
+
+				<button id="view_course_button" ng-click="getCourseInformation(model_course_input)" ng-style="styleViewCourseButton">View Ratings</button>
 		</div>
 
-		<div class="input_holder">
-
-			<select id="select_university" ng-model="model_selectedUniversity" ng-style=styleSelectUniversity ng-change="getCourses(model_selectedUniversity)" >
-				<option value="" disabled selected>Select University</option>
-				<option ng-repeat="university in universities">
-					{{university}}
-				</option>
-			</select>
-
+		<div class="course_div" id="add_course_holder">
+			<p>Cant find a course?</p>
+			<button id="add_course_button">Add Course</button>
 		</div>
-
-		<div class="input_holder">
-
-			<select id="select_course" ng-model="model_course_input" ng-style="styleSelectCourse" ng-change="clickedCourse()">
-				<option value="" disabled selected>Select Course</option>
-				<option ng-repeat="course in courses">
-					{{course}}
-				</option>
-			</select>
-
-		</div>
-
-
-			<button id="view_course_button" disabled ng-click="click()" ng-style="styleViewCourseButton">View Ratings</button>
 	</div>
 
-	<div class="course_div" id="add_course_holder">
-		<p>Cant find a course?</p>
-		<button id="add_course_button">Add Course</button>
+	<div id="course_information">
+		
+
 	</div>
 
 </div>

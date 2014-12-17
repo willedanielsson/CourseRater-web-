@@ -6,7 +6,6 @@
 	});
 
   	$scope.getUniversities = function(country){
-  		console.log("Valde"+country);
   		$http.get("http://www.ashiya.se/app/getUniversitiesForCountry.php?country="+country).success(function(response){
   			$scope.universities = response;
   		});
@@ -17,7 +16,6 @@
 	}
 
 	$scope.getCourses = function(university){
-		console.log("Valde university"+university);
 		$http.get("http://www.ashiya.se/app/getCoursesForUniversity.php?chosenUniversity="+university).success(function(response){
 			$scope.courses = response;
 		})
@@ -37,8 +35,11 @@
 		button.removeAttr('disabled');
 	}
 
-	$scope.click = function(){
-		console.log("Button click");
+	$scope.getCourseInformation = function(course){
+		$http.get("http://www.ashiya.se/app/getCourseInformation.php?chosenCourse="+course).success(function(response){
+			//$scope.courseInformation = reponse;
+			console.log(response);
+		});
 	}
 
 

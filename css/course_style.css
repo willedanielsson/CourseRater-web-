@@ -2,6 +2,10 @@
 	padding-bottom: 50px;
 }
 
+.courses #course_selection{
+	width: 100%;
+}
+
 .courses .course_div{
 	display: table-cell;
 }
@@ -38,7 +42,9 @@
 
 .courses .input_holder #select_university,
 .courses .input_holder #select_course {
-	pointer-events: none;
+	/*
+	DEVELOP
+	pointer-events: none;*/
 	border: none;
 
 }
@@ -69,3 +75,29 @@
 	margin-left: 50px;
 
 }
+
+.courses #course_information{
+	border: 3px solid green;
+	height: 200px;
+	margin: 50px 50px 50px 50px;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
