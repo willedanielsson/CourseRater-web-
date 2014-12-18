@@ -21,19 +21,6 @@ body{
 	background-color: black;
 }
 
-#navigation_overline{
-	height: 7px;
-	width: 100%;
-
-	background-color: black;
-}
-
-#navigation_underline{
-	height: 7px;
-	width: 100%;
-	
-	background-color: green;
-}
 
 #navigation ul{
 	display: inline-block;
@@ -47,22 +34,24 @@ body{
 #navigation li{
 	display: inline-block;
 
-	width: 130px;
+	width: 150px;
 	margin-right: 4px;
-
-	border-top-left-radius: 3px;
-  	border-top-right-radius: 3px;
-
-	border: 3px solid green;
+	
+	opacity: 0.6;
+	color: #eeeeee;
 	
 }
 
 #navigation li:hover{
-	background-color: green;
+	opacity: 1;
+}
+
+.fa{
+	color: green;
 }
 
 #navigation .active{
-	background-color: green;
+
 }
 
 #navigation #navigation_menu a{

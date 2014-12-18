@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/header_style.css">
 <link rel="stylesheet" href="css/course_style.css">
 <link rel="stylesheet" href="css/reset_stylesheet.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body ng-controller="mainController">
@@ -18,24 +19,36 @@
 <div class="content">
 
 	<header>
-		<div id="navigation_overline"></div>
 		<nav id="navigation" ng-controller="NavController">
 
 			<ul id="navigation_menu">
 				<li ng-class="{ active: isActive('/') }">
-					<a href="#">Home</a>
+					<a href="#">
+						<span class="fa fa-bolt"></span>
+						Home
+					</a>
 				</li>
 			
 				<li ng-class="{ active: isActive('/courses') }">
-					<a  href="#courses">Courses</a>
+					<a href="#courses">
+						<span class="fa fa-book"></span>
+						Courses
+					</a>
 				</li>
-
+<!--
 				<li ng-class="{ active: isActive('/about') }" > 
-					<a href="#about">About</a>
+					<a href="#about">
+						<span class="fa fa-"></span>
+						About
+					</a>
 				</li>
+			-->
 
 				<li ng-class="{ active: isActive('/contact') }" >
-					<a href="#contact">Contact</a>
+					<a href="#contact">
+						<span class="fa fa-at"></span>
+						Contact
+					</a>
 				</li>
 			</ul>
 
@@ -54,7 +67,6 @@
 
 			</div>
 		</nav>
-		<div id="navigation_underline"></div>
 	</header>
 
 	<div id="main">
