@@ -30,7 +30,7 @@
 			<div class="input_holder">
 
 				<select id="select_course" ng-model="model_course_input" ng-style="styleSelectCourse" ng-change="clickedCourse()">
-					<option value="" disabled selected>Select Course</option>
+					<option value="" disables selected>Select Course</option>
 					<option ng-repeat="course in courses">
 						{{course}}
 					</option>
@@ -38,8 +38,10 @@
 
 			</div>
 
-
+				<!-- DEVELOP 
 				<button id="view_course_button" ng-click="getCourseInformation(model_course_input)" ng-style="styleViewCourseButton">View Ratings</button>
+				-->
+				<button id="view_course_button" ng-click="getCourseInformation('TANA21')" ng-style="styleViewCourseButton">View TANA21</button>
 		</div>
 
 		<div class="course_div" id="add_course_holder">
@@ -49,9 +51,68 @@
 	</div>
 
 	<div id="course_information">
-		<p ng-repeat="informationRatings in courseInformation.Ratings[0]">
-		{{informationRatings}}
-		</p>
+		<h1>{{course}}</h1>
+		<ul>
+
+			<li id="usefulness">
+				<div class="part">
+					<p>Usefulness</p>
+				</div>
+
+				<div class="progress_div">
+					<p>PROGRESSBAAaaaaaaaaaaaar</p>
+				</div>	
+				
+				<div class="part_rating">
+					{{courseInformation.Ratings[0]['AVG(cI.usefulness)']}}
+				</div>
+			</li>
+			
+			<li id="difficulty">
+				<div class="part">
+					<p>Difficulty</p>
+				</div>	
+
+				{{courseInformation.Ratings[0]['AVG(cI.difficulty)']}}
+			</li>
+
+			<li id="exam_rating">
+				<div class="part">
+					<p>Exam</p>
+				</div>
+
+				{{courseInformation.Ratings[0]['AVG(cI.examRating)']}}
+			</li>
+
+			<li id="lecture_rating">
+				{{courseInformation.Ratings[0]['AVG(cI.lectureRating)']}}
+			</li>
+
+			<li id="lesson_rating">
+				{{courseInformation.Ratings[0]['AVG(cI.lessonRating)']}}
+			</li>
+
+			<li id="laboratory_rating">
+				{{courseInformation.Ratings[0]['AVG(cI.laboratoryRating)']}}
+			</li>
+
+			<li id="seminar_rating">
+				{{courseInformation.Ratings[0]['AVG(cI.seminarRating)']}}
+			</li>
+
+			<li id="project_rating">
+				{{courseInformation.Ratings[0]['AVG(cI.projectRating)']}}
+			</li>
+
+			<li id="homeassignment_rating">
+				{{courseInformation.Ratings[0]['AVG(cI.homeassignmentRating)']}}
+			</li>
+
+			<li id="case_rating">
+				{{courseInformation.Ratings[0]['AVG(cI.caseRating)']}}
+			</li>
+		</ul>		
+	
 	</div>
 
 </div>

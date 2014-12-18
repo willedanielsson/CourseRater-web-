@@ -38,8 +38,9 @@
 	$scope.getCourseInformation = function(course){
 		$http.get("http://www.ashiya.se/app/getCourseInformation.php?chosenCourse="+course).success(function(response){
 			$scope.courseInformation = response;
+			$scope.course = course;
 
-			console.log($scope.courseInformation);
+			console.log(response.Ratings[0]);
 		});
 	}
 

@@ -78,10 +78,36 @@
 
 .courses #course_information{
 	border: 3px solid green;
-	height: 200px;
 	margin: 50px 50px 50px 50px;
+}
 
+.courses #course_information ul{
+	padding-left: 0px;
+	list-style: none;
+}
 
+.courses #course_information li{
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 10px;
+
+	
+	height: 60px;
+	border: 1px solid green;
+
+}
+
+.courses #course_information li .part{
+	display: inline-block;
+}
+
+.courses #course_information li .progress_div{
+	display: inline-block;
+}
+
+.courses #course_information li .part_rating{
+	float: right;
+	display: inline-block;
 }
 
 
