@@ -97,18 +97,45 @@
 
 }
 
-.courses #course_information li .part{
-	display: inline-block;
+.courses #course_information li .course_information_list_item_container{
+	margin-top: 12px;
+
 }
+
+.courses #course_information li p{
+	font-size: 30px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.courses #course_information li .part{
+	display: table-cell;
+	margin-left: 10px;
+}
+
 
 .courses #course_information li .progress_div{
-	display: inline-block;
+	width: 240px;
+	margin-left: 50px;
+	display: table-cell;
+	margin-left: 150px;
 }
 
-.courses #course_information li .part_rating{
-	float: right;
-	display: inline-block;
+.courses #course_information li .progress_div .progress_bar{
+		border:1px solid black;
 }
+
+.courses #course_information li .progress_div .progress_bar > div{
+	background-color: green;
+	width: 50%;
+	height: 20px;
+}
+.courses #course_information li .part_rating{
+	display: table-cell;
+	
+
+}
+
 
 
 

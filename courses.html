@@ -55,25 +55,37 @@
 		<ul>
 
 			<li id="usefulness">
+			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Usefulness</p>
 				</div>
 
 				<div class="progress_div">
-					<p>PROGRESSBAAaaaaaaaaaaaar</p>
+					<div class="progress_bar">
+						<div></div>
+					</div>
 				</div>	
 				
 				<div class="part_rating">
-					{{courseInformation.Ratings[0]['AVG(cI.usefulness)']}}
+					<p>{{courseInformation.Ratings[0]['AVG(cI.usefulness)'] | number:1}}</p>
 				</div>
+			<div class="course_information_list_item_container">
 			</li>
 			
 			<li id="difficulty">
 				<div class="part">
 					<p>Difficulty</p>
-				</div>	
-
-				{{courseInformation.Ratings[0]['AVG(cI.difficulty)']}}
+				</div>
+				
+				<div class="progress_div">
+					<div class="progress_bar">
+						<div></div>
+					</div>
+				</div>
+				
+				<div class="part_rating">
+					<p>{{courseInformation.Ratings[0]['AVG(cI.difficulty)'] | number:1}}</p>
+				</div>
 			</li>
 
 			<li id="exam_rating">
@@ -81,35 +93,132 @@
 					<p>Exam</p>
 				</div>
 
-				{{courseInformation.Ratings[0]['AVG(cI.examRating)']}}
+				<div class="progress_div">
+					<div class="progress_bar">
+						<div></div>
+					</div>
+				</div>
+
+				<div class="part_rating">
+					<p>{{courseInformation.Ratings[0]['AVG(cI.examRating)'] | number:1}}</p>
+				</div>	
 			</li>
 
 			<li id="lecture_rating">
-				{{courseInformation.Ratings[0]['AVG(cI.lectureRating)']}}
+				<div class="part">
+					<p>Lectures</p>
+				</div>
+
+				<div class="progress_div">
+					<div class="progress_bar">
+						<div></div>
+					</div>
+				</div>
+
+				<div class="part_rating">
+					<p>{{courseInformation.Ratings[0]['AVG(cI.lectureRating)'] | number:1}}</p>
+				</div>	
 			</li>
 
 			<li id="lesson_rating">
-				{{courseInformation.Ratings[0]['AVG(cI.lessonRating)']}}
+				<div class="part">
+					<p>Lessons</p>
+				</div>
+
+				<div class="progress_div">
+					<div class="progress_bar">
+						<div></div>
+					</div>
+				</div>
+
+				<div class="part_rating">
+					<p>{{courseInformation.Ratings[0]['AVG(cI.lessonRating)'] | number:1}}</p>
+				</div>	
 			</li>
 
 			<li id="laboratory_rating">
-				{{courseInformation.Ratings[0]['AVG(cI.laboratoryRating)']}}
+
+				<div class="part">
+					<p>Laboratory</p>
+				</div>
+
+				<div class="progress_div">
+					<div class="progress_bar">
+						<div></div>
+					</div>
+				</div>
+				
+				<div class="part_rating">
+					<p>{{courseInformation.Ratings[0]['AVG(cI.laboratoryRating)'] | number:1}}</p>
+				</div>	
 			</li>
 
 			<li id="seminar_rating">
-				{{courseInformation.Ratings[0]['AVG(cI.seminarRating)']}}
+
+				<div class="part">
+					<p>Seminar</p>
+				</div>
+
+				<div class="progress_div">
+					<div class="progress_bar">
+						<div></div>
+					</div>
+				</div>
+				
+				<div class="part_rating">
+					<p>{{courseInformation.Ratings[0]['AVG(cI.seminarRating)'] | number:1}}</p>
+				</div>
 			</li>
 
 			<li id="project_rating">
-				{{courseInformation.Ratings[0]['AVG(cI.projectRating)']}}
+
+				<div class="part">
+					<p>Project</p>
+				</div>
+
+				<div class="progress_div">
+					<div class="progress_bar">
+						<div></div>
+					</div>
+				</div>
+
+				<div class="part_rating">
+					<p>{{courseInformation.Ratings[0]['AVG(cI.projectRating)'] | number:1}}</p>
+				</div>	
 			</li>
 
 			<li id="homeassignment_rating">
-				{{courseInformation.Ratings[0]['AVG(cI.homeassignmentRating)']}}
+
+				<div class="part">
+					<p>Homeassignment</p>
+				</div>
+
+				<div class="progress_div">
+					<div class="progress_bar">
+						<div></div>
+					</div>
+				</div>
+
+				<div class="part_rating">
+					<p>{{courseInformation.Ratings[0]['AVG(cI.homeassignmentRating)'] | number:1}}</p>
+				</div>
 			</li>
 
 			<li id="case_rating">
-				{{courseInformation.Ratings[0]['AVG(cI.caseRating)']}}
+
+				<div class="part">
+					<p>Case</p>
+				</div>
+
+				<div class="progress_div">
+					<div class="progress_bar">
+						<div></div>
+					</div>
+				</div>
+
+				<div class="part_rating">
+					<p>{{courseInformation.Ratings[0]['AVG(cI.caseRating)'] | number:1}}</p>
+				</div>
 			</li>
 		</ul>		
 	
