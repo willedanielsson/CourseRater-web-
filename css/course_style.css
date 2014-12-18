@@ -81,9 +81,16 @@
 	margin: 50px 50px 50px 50px;
 }
 
+.courses #course_information h1{
+	font-size: 40px;
+	margin-top: 10px;
+	margin-left: 50px;
+}
+
 .courses #course_information ul{
-	padding-left: 0px;
 	list-style: none;
+	margin-top: 10px;
+
 }
 
 .courses #course_information li{
@@ -109,13 +116,17 @@
 }
 
 .courses #course_information li .part{
+	width: 350px;
 	display: table-cell;
 	margin-left: 10px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding-left: 10px;
 }
 
 
 .courses #course_information li .progress_div{
-	width: 240px;
+	width: 350px;
 	margin-left: 50px;
 	display: table-cell;
 	margin-left: 150px;
@@ -123,6 +134,7 @@
 
 .courses #course_information li .progress_div .progress_bar{
 		border:1px solid black;
+			width: 240px;
 }
 
 .courses #course_information li .progress_div .progress_bar > div{
@@ -131,11 +143,16 @@
 	height: 20px;
 }
 .courses #course_information li .part_rating{
+	width: 100px;	
 	display: table-cell;
-	
-
 }
 
+.courses #course_information li .part_rating p{
+	float: right;
+	margin-right: 10px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
 
 
 

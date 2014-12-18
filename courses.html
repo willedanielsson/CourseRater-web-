@@ -41,17 +41,19 @@
 				<!-- DEVELOP 
 				<button id="view_course_button" ng-click="getCourseInformation(model_course_input)" ng-style="styleViewCourseButton">View Ratings</button>
 				-->
-				<button id="view_course_button" ng-click="getCourseInformation('TANA21')" ng-style="styleViewCourseButton">View TANA21</button>
+				<button id="view_course_button" ng-click="getCourseInformation('TANA21', 'ratings')" ng-style="styleViewCourseButton">View TANA21</button>
 		</div>
 
 		<div class="course_div" id="add_course_holder">
 			<p>Cant find a course?</p>
-			<button id="add_course_button">Add Course</button>
+			<button id="add_course_button" ng-click="ratings_or_comments='ratings'">Add Course</button>
 		</div>
 	</div>
 
-	<div id="course_information">
+	<div id="course_information" ng-switch on="ratings_or_comments">
 		<h1>{{course}}</h1>
+		<div ng-switch-default></div>
+		<div id="course_rating" ng-switch-when="ratings">
 		<ul>
 
 			<li id="usefulness">
@@ -73,6 +75,7 @@
 			</li>
 			
 			<li id="difficulty">
+			<div class="course_information_list_item_container">	
 				<div class="part">
 					<p>Difficulty</p>
 				</div>
@@ -86,9 +89,11 @@
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.difficulty)'] | number:1}}</p>
 				</div>
+			</div>	
 			</li>
 
 			<li id="exam_rating">
+			<div class="course_information_list_item_container">	
 				<div class="part">
 					<p>Exam</p>
 				</div>
@@ -102,9 +107,11 @@
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.examRating)'] | number:1}}</p>
 				</div>	
+			</div>	
 			</li>
 
 			<li id="lecture_rating">
+			<div class="course_information_list_item_container">	
 				<div class="part">
 					<p>Lectures</p>
 				</div>
@@ -117,10 +124,12 @@
 
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.lectureRating)'] | number:1}}</p>
-				</div>	
+				</div>
+			</div>		
 			</li>
 
 			<li id="lesson_rating">
+			<div class="course_information_list_item_container">	
 				<div class="part">
 					<p>Lessons</p>
 				</div>
@@ -133,11 +142,12 @@
 
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.lessonRating)'] | number:1}}</p>
-				</div>	
+				</div>
+			</div>		
 			</li>
 
 			<li id="laboratory_rating">
-
+			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Laboratory</p>
 				</div>
@@ -150,11 +160,12 @@
 				
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.laboratoryRating)'] | number:1}}</p>
-				</div>	
+				</div>
+			</div>	
 			</li>
 
 			<li id="seminar_rating">
-
+			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Seminar</p>
 				</div>
@@ -168,10 +179,11 @@
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.seminarRating)'] | number:1}}</p>
 				</div>
+			</div>	
 			</li>
 
 			<li id="project_rating">
-
+			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Project</p>
 				</div>
@@ -185,10 +197,11 @@
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.projectRating)'] | number:1}}</p>
 				</div>	
+			</div>	
 			</li>
 
 			<li id="homeassignment_rating">
-
+			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Homeassignment</p>
 				</div>
@@ -202,10 +215,11 @@
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.homeassignmentRating)'] | number:1}}</p>
 				</div>
+			</div>	
 			</li>
 
 			<li id="case_rating">
-
+			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Case</p>
 				</div>
@@ -219,9 +233,17 @@
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.caseRating)'] | number:1}}</p>
 				</div>
+			</div>	
 			</li>
 		</ul>		
-	
+		</div> <!-- ng-switch ratings -->
+
+
+
+		<div ng-switch-when="comments">
+			
+			
+		</div>	
 	</div>
 
 </div>
