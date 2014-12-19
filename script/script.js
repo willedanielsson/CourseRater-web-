@@ -1,5 +1,5 @@
 //Module
-var courseApp = angular.module('courseApp', ['ngRoute']);
+var courseApp = angular.module('courseApp', ['ngRoute', 'ngAnimate']);
 
 courseApp.controller('NavController', function($scope, $location){
 	$scope.isActive = function(route){

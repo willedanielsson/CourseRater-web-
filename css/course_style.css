@@ -81,11 +81,17 @@
 	margin: 50px 50px 50px 50px;
 }
 
+.courses #course_information .switch{
+
+}
+
+
 .courses #course_information h1{
 	font-size: 40px;
 	margin-top: 10px;
 	margin-left: 50px;
 }
+
 
 .courses #course_information ul{
 	list-style: none;

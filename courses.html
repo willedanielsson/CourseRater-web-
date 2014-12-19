@@ -50,12 +50,16 @@
 		</div>
 	</div>
 
-	<div id="course_information" ng-switch on="ratings_or_comments" ng-controller="course_information_controller">
-		<h1>{{course}}</h1>
-		<div ng-switch-default></div>
-		<div id="course_rating" ng-switch-when="ratings">
-		<ul>
+	<div id="course_information" ng-switch on="ratings_or_comments">
+		
+		<div class="switch" ng-switch-default>
+			<!-- Empty Div is default-->
+		</div>
 
+		<div class="switch" id="course_rating" ng-switch-when="ratings">
+			<h1>{{course}}</h1>
+		<ul>
+			
 			<li id="usefulness" ng-click="getComments()">
 			<div class="course_information_list_item_container">
 				<div class="part">
