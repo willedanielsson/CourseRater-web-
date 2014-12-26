@@ -21,7 +21,7 @@
 }
 
 .courses .course_div p{
-	margin-bottom:10px; 
+	margin-bottom: 10px; 
 
 	font-size: 30px;
 	font-weight: bold;
@@ -105,7 +105,6 @@
 	margin-bottom: 10px;
 
 	
-	height: 60px;
 	border: 1px solid green;
 
 }
@@ -124,9 +123,7 @@
 .courses #course_information li .part{
 	width: 350px;
 	display: table-cell;
-	margin-left: 10px;
-	margin-bottom: 0px;
-	margin-top: 0px;
+	padding-bottom: 15px;
 	padding-left: 10px;
 }
 
@@ -139,8 +136,8 @@
 }
 
 .courses #course_information li .progress_div .progress_bar{
-		border:1px solid black;
-			width: 240px;
+	border:1px solid black;
+	width: 240px;
 }
 
 .courses #course_information li .progress_div .progress_bar > div{
@@ -158,6 +155,30 @@
 	margin-right: 10px;
 	margin-bottom: 0px;
 	margin-top: 0px;
+}
+
+.courses #course_information .comments_list{
+	margin-left: 50px;
+	margin-right: 50px;
+	border: 1px solid blue;
+	/*display: none;*/
+}
+
+.courses #course_information .comments_list .comments_list_items{
+	border: none;
+	border-bottom: 1px solid black;
+	height: auto;
+
+	margin-left: 10px;
+	margin-right: 10px;
+
+}
+
+.courses #course_information .comments_list .comments_list_items p{
+	font-size: 17px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: grey;
 }
 
 

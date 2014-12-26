@@ -60,7 +60,7 @@
 			<h1>{{course}}</h1>
 		<ul>
 			
-			<li id="usefulness" ng-click="getComments()">
+			<li id="usefulness" ng-style="usefulness_style" ng-click="getComments()">
 			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Usefulness</p>
@@ -68,17 +68,17 @@
 
 				<div class="progress_div">
 					<div class="progress_bar">
-						<div></div>
+						<div ng-style="usefulness_bar"></div>
 					</div>
 				</div>	
 				
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.usefulness)'] | number:1}}</p>
 				</div>
-			<div class="course_information_list_item_container">
+			</div>
 			</li>
 			
-			<li id="difficulty">
+			<li id="difficulty" ng-style="difficulty_style" ng-click="getComments()">
 			<div class="course_information_list_item_container">	
 				<div class="part">
 					<p>Difficulty</p>
@@ -86,7 +86,7 @@
 				
 				<div class="progress_div">
 					<div class="progress_bar">
-						<div></div>
+						<div ng-style="difficulty_bar"></div>
 					</div>
 				</div>
 				
@@ -96,7 +96,7 @@
 			</div>	
 			</li>
 
-			<li id="exam_rating">
+			<li id="exam_rating" ng-style="exam_style" ng-model="exam" ng-click="getComments(custom=!custom, 'exam')">
 			<div class="course_information_list_item_container">	
 				<div class="part">
 					<p>Exam</p>
@@ -104,7 +104,7 @@
 
 				<div class="progress_div">
 					<div class="progress_bar">
-						<div></div>
+						<div ng-style="exam_bar"></div>
 					</div>
 				</div>
 
@@ -112,9 +112,18 @@
 					<p>{{courseInformation.Ratings[0]['AVG(cI.examRating)'] | number:1}}</p>
 				</div>	
 			</div>	
+			<ul class="comments_list" ng-style="exam_comments_list_style" ng-show="custom">
+				<li ng-repeat="comments in courseInformation.examComments" class="comments_list_items">
+					<p>{{comments.examComment}}</p>
+				</li>
+			</ul>
+			<span ng-hide="custom">HELLO</span>
 			</li>
 
-			<li id="lecture_rating">
+			
+			
+
+			<li id="lecture_rating" ng-style="lecture_style" ng-click="getComments(custom=!custom, 'lectures')">
 			<div class="course_information_list_item_container">	
 				<div class="part">
 					<p>Lectures</p>
@@ -122,17 +131,23 @@
 
 				<div class="progress_div">
 					<div class="progress_bar">
-						<div></div>
+						<div ng-style="lecture_bar"></div>
 					</div>
 				</div>
 
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.lectureRating)'] | number:1}}</p>
 				</div>
-			</div>		
+			</div>
+			<ul class="comments_list" ng-show="custom">
+				<li ng-repeat="comments in courseInformation.examComments" class="comments_list_items">
+					<p>{{comments.examComment}}</p>
+				</li>
+			</ul>
+			<span ng-hide="custom">BEHEHE</span>		
 			</li>
 
-			<li id="lesson_rating">
+			<li id="lesson_rating" ng-style="lesson_style" ng-click="getComments()">
 			<div class="course_information_list_item_container">	
 				<div class="part">
 					<p>Lessons</p>
@@ -140,7 +155,7 @@
 
 				<div class="progress_div">
 					<div class="progress_bar">
-						<div></div>
+						<div ng-style="lesson_bar"></div>
 					</div>
 				</div>
 
@@ -150,7 +165,7 @@
 			</div>		
 			</li>
 
-			<li id="laboratory_rating">
+			<li id="laboratory_rating" ng-style="lesson_style" ng-click="getComments()">
 			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Laboratory</p>
@@ -158,7 +173,7 @@
 
 				<div class="progress_div">
 					<div class="progress_bar">
-						<div></div>
+						<div ng-style="laboratory_bar"></div>
 					</div>
 				</div>
 				
@@ -168,7 +183,7 @@
 			</div>	
 			</li>
 
-			<li id="seminar_rating">
+			<li id="seminar_rating" ng-style="seminar_style" ng-click="getComments()">
 			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Seminar</p>
@@ -176,7 +191,7 @@
 
 				<div class="progress_div">
 					<div class="progress_bar">
-						<div></div>
+						<div ng-style="seminar_bar"></div>
 					</div>
 				</div>
 				
@@ -186,7 +201,7 @@
 			</div>	
 			</li>
 
-			<li id="project_rating">
+			<li id="project_rating" ng-style="project_style" ng-click="getComments()">
 			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Project</p>
@@ -194,7 +209,7 @@
 
 				<div class="progress_div">
 					<div class="progress_bar">
-						<div></div>
+						<div ng-style="project_bar"></div>
 					</div>
 				</div>
 
@@ -204,7 +219,7 @@
 			</div>	
 			</li>
 
-			<li id="homeassignment_rating">
+			<li id="homeassignment_rating" ng-style="homeassignment_style" ng-click="getComments()">
 			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Homeassignment</p>
@@ -212,7 +227,7 @@
 
 				<div class="progress_div">
 					<div class="progress_bar">
-						<div></div>
+						<div ng-style="homeassignment_bar"></div>
 					</div>
 				</div>
 
@@ -222,7 +237,7 @@
 			</div>	
 			</li>
 
-			<li id="case_rating">
+			<li id="case_rating" ng-style="case_style" ng-click="getComments()">
 			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Case</p>
@@ -230,7 +245,7 @@
 
 				<div class="progress_div">
 					<div class="progress_bar">
-						<div></div>
+						<div ng-style="case_bar"></div>
 					</div>
 				</div>
 
