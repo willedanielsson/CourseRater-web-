@@ -1,11 +1,11 @@
 courseApp.controller('courseController', function($scope, $http){
 
-	$http.get("http://www.ashiya.se/app/getCountries.php").success(function(response){
+	$http.get("http://www.ashiya.se/Develop/CourseRaterWeb/Production/getCountries.php").success(function(response){
 		$scope.countries = response;
 	});
 
   	$scope.getUniversities = function(country){
-  		$http.get("http://www.ashiya.se/app/getUniversitiesForCountry.php?country="+country).success(function(response){
+  		$http.get("http://www.ashiya.se/Develop/CourseRaterWeb/Production/getUniversitiesForCountry.php?country="+country).success(function(response){
   			$scope.universities = response;
   		});
 
@@ -17,7 +17,7 @@ courseApp.controller('courseController', function($scope, $http){
 	}
 
 	$scope.getCourses = function(university){
-		$http.get("http://www.ashiya.se/app/getCoursesForUniversity.php?chosenUniversity="+university).success(function(response){
+		$http.get("http://www.ashiya.se/Develop/CourseRaterWeb/Production/getCoursesForUniversity.php?chosenUniversity="+university).success(function(response){
 			$scope.courses = response;
 		})
 		// When a university has been chosen, show that the course-list is unlocked
@@ -49,7 +49,8 @@ courseApp.controller('courseController', function($scope, $http){
 		$scope.ratings_or_comments = ratings_or_comments;
 
 		$scope.course = course;
-		$http.get("http://www.ashiya.se/app/getCourseInformation.php?chosenCourse="+course).success(function(response){
+		console.log(course);
+		$http.get("http://localhost:8888/Test/getCourseInformation.php?chosenCourse="+course).success(function(response){
 
 			//Give the ratings their needed data
 			$scope.courseInformation = response;

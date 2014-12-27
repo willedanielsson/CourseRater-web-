@@ -6,12 +6,12 @@
 
 	<div id="registration">
 		
-		<form id="registration_form" action="register.php" method="post" accept-charset='UTF-8'>
+		<form id="registration_form" action="http://www.ashiya.se/Develop/CourseRaterWeb/Production/register.php" method="get" accept-charset='UTF-8'>
 			<div class="form_item">
 				<label for="email">
 					<i class="fa fa-envelope-o"></i>
 				</label>
-				<input type="email" name="email" placeholder="Email" required />
+				<input type="email" name="email" placeholder="Email" required/>
 
 			</div>	
 			
@@ -19,7 +19,7 @@
 				<label for="country">
 					<i class="fa fa-globe"></i>
 				</label>
-				<select name="country" ng-model="model_selectedCountry" ng-change="getUniversities(model_selectedCountry)" required>
+				<select name="country" ng-model="model_selectedCountry" ng-change="getUniversities(model_selectedCountry)" >
 					<option value="" disabled selected>Select Country</option>
 					<option ng-repeat="country in countries">
 						{{country}}
@@ -31,7 +31,7 @@
 				<label for="university">
 					<i class="fa fa-university"></i>
 				</label>
-				<select name="university" required>
+				<select name="university">
 					<option value="" disabled selected>Select University</option>
 					<option ng-repeat="university in universities">
 						{{university}}
@@ -43,14 +43,14 @@
 				<label for="password">
 					<i class="fa fa-shield"></i>
 				</label>
-				<input type="password" name="password" placeholder="Password" required/>
+				<input type="password" name="password" placeholder="Password"/>
 			</div>
 			
 			<div class="form_item">
 				<label for=repassword>
 					<i class="fa fa-shield"></i>
 				</label>		
-				<input type="password" name="repassword" placeholder="Repeat Password" required />
+				<input type="password" name="repassword" placeholder="Repeat Password"/>
 			</div>
 			
 			<input type="submit" class="button" value="Register"/>
