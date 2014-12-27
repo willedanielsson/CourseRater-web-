@@ -12,7 +12,7 @@ courseApp.controller('courseController', function($scope, $http){
   		// When a country has been chosen, show that the university-list is unlocked
   		$scope.styleSelectUniversity = {
   			'pointer-events':"visible",
-  			'border': "2px solid green"
+  			'background-color': "#fff"
   		}
 	}
 
@@ -23,7 +23,7 @@ courseApp.controller('courseController', function($scope, $http){
 		// When a university has been chosen, show that the course-list is unlocked
 		$scope.styleSelectCourse = {
   			'pointer-events':"visible",
-  			'border': "2px solid green"
+  			'background-color': "#fff"
   		}
 	}
 
