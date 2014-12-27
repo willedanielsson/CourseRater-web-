@@ -13,11 +13,15 @@
 .courses #add_course_holder{
 	margin-left: 50px;
 }
+.courses p{
+		margin-left: 50px;
+	margin-top: 10px;
+}
 
 .courses .input_holder{
 	margin-left: 50px;
 	margin-top: 10px;
-
+	
 }
 
 .courses .course_div p{
@@ -30,14 +34,21 @@
 .courses .input_holder select{
 	width: 280px;
 	height: 30px;
-	border: 2px solid green;
-	padding: 5px;
-	
+
+	padding: 5px;	
 	font-size: 15px;
 
-	-webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    border-radius:4px;
+	background-color: #fff;
+	border: solid 1px #cbc9c9;
+	border-radius: 5px;
+	box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+
+    -webkit-border-radius: 5px;
+  	-moz-border-radius: 5px;
+	-webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+	-moz-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+	
+	
 }
 
 .courses .input_holder #select_university,
@@ -53,7 +64,7 @@
 }
 
 .courses button{
-	background-color: green;
+	background-color: #78F36B;
 	border-radius: 5px;
 
 	font-size: 15px;
@@ -72,7 +83,7 @@
 }
 
 .courses #add_course_holder #add_course_button{
-	border: 2px solid green;
+	border: 2px solid #78F36B;
 	margin-left: 50px;
 
 }
@@ -90,6 +101,15 @@
 	font-size: 40px;
 	margin-top: 10px;
 	margin-left: 50px;
+	display: table-cell;
+}
+
+.courses #course_information .general_rating{
+	font-size: 40px;
+	font-weight: bold;
+	padding-left: 600px;
+	display: table-cell;
+	color: #78F36B;
 }
 
 
@@ -104,11 +124,26 @@
 	margin-right: 50px;
 	margin-bottom: 10px;
 
-	
-	border: 1px solid green;
-
+	border-radius: 5px;
+	border: 1px solid #78F36B;
+	box-shadow: 0px 1px 5px #888888;
 }
 
+.courses #course_information li:hover{
+	cursor: pointer;
+	box-shadow: 0px 5px 5px #888888;
+}
+
+.courses #course_information #usefulness,
+.courses #course_information #difficulty{
+box-shadow: none;
+}
+
+.courses #course_information #usefulness:hover,
+.courses #course_information #difficulty:hover{
+	cursor: default;
+	box-shadow: none;
+}
 .courses #course_information li .course_information_list_item_container{
 	margin-top: 12px;
 
@@ -141,44 +176,56 @@
 }
 
 .courses #course_information li .progress_div .progress_bar > div{
-	background-color: green;
+	background-color: #78F36B;
 	width: 50%;
 	height: 20px;
 }
 .courses #course_information li .part_rating{
-	width: 100px;	
+	width: 50px;	
 	display: table-cell;
 }
 
 .courses #course_information li .part_rating p{
-	float: right;
 	margin-right: 10px;
 	margin-bottom: 0px;
 	margin-top: 0px;
 }
 
 .courses #course_information .comments_list{
-	margin-left: 50px;
-	margin-right: 50px;
-	border: 1px solid blue;
-	/*display: none;*/
+	margin-left: 10px;
+	margin-right: 10px;
+
+	height: 300px;
+	overflow-y: scroll;
 }
 
 .courses #course_information .comments_list .comments_list_items{
 	border: none;
-	border-bottom: 1px solid black;
+	box-shadow: 0px 0px 10px #888888;
 	height: auto;
+	position: relative;
 
 	margin-left: 10px;
 	margin-right: 10px;
 
 }
 
-.courses #course_information .comments_list .comments_list_items p{
+.courses #course_information .comments_list .comments_list_items .comment{
 	font-size: 17px;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	color: grey;
+	padding: 10px;
+	padding-top: 20px;
+	color: gray;
+}
+
+.courses #course_information .comments_list .comments_list_items .date{
+	font-size: 8px;
+	font-style: italic;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+
 }
 
 

@@ -3,9 +3,8 @@
 	<div id="course_selection">
 
 		<div class="course_div" id="input">
-
+			<p>Find Course</p>
 			<div class="input_holder">
-				<p>Find Course</p>
 
 				<select id="select_country" ng-model="model_selectedCountry" ng-change="getUniversities(model_selectedCountry)">
 					<option value="" disabled selected>Select Country</option>
@@ -58,9 +57,11 @@
 
 		<div class="switch" id="course_rating" ng-switch-when="ratings">
 			<h1>{{course}}</h1>
+			<p class="general_rating">{{generalRating}}
 		<ul>
-			
-			<li id="usefulness" ng-style="usefulness_style" ng-click="getComments()">
+
+<!-- Usefulness -->			
+			<li id="usefulness" ng-style="usefulness_style">
 			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Usefulness</p>
@@ -77,8 +78,9 @@
 				</div>
 			</div>
 			</li>
-			
-			<li id="difficulty" ng-style="difficulty_style" ng-click="getComments()">
+
+<!-- Difficulty -->		
+			<li id="difficulty" ng-style="difficulty_style">
 			<div class="course_information_list_item_container">	
 				<div class="part">
 					<p>Difficulty</p>
@@ -96,7 +98,8 @@
 			</div>	
 			</li>
 
-			<li id="exam_rating" ng-style="exam_style" ng-model="exam" ng-click="getComments(custom=!custom, 'exam')">
+<!-- Exam -->
+			<li id="exam_rating" ng-style="exam_style" ng-click="getComments(toggle_exam=!toggle_exam, 'exam')">
 			<div class="course_information_list_item_container">	
 				<div class="part">
 					<p>Exam</p>
@@ -107,23 +110,24 @@
 						<div ng-style="exam_bar"></div>
 					</div>
 				</div>
-
+				
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.examRating)'] | number:1}}</p>
-				</div>	
+				</div>
 			</div>	
-			<ul class="comments_list" ng-style="exam_comments_list_style" ng-show="custom">
+			<ul class="comments_list" ng-show="toggle_exam">
 				<li ng-repeat="comments in courseInformation.examComments" class="comments_list_items">
-					<p>{{comments.examComment}}</p>
+					<p class="comment" >{{comments.examComment}}</p>
+					<p class="date" >2014</p>
 				</li>
 			</ul>
-			<span ng-hide="custom">HELLO</span>
+
+			<span ng-hide="toggle_exam"></span>
 			</li>
 
 			
-			
-
-			<li id="lecture_rating" ng-style="lecture_style" ng-click="getComments(custom=!custom, 'lectures')">
+<!-- Lecture -->			
+			<li id="lecture_rating" ng-style="lecture_style" ng-click="getComments(toggle_lecture=!toggle_lecture, 'lectures')">
 			<div class="course_information_list_item_container">	
 				<div class="part">
 					<p>Lectures</p>
@@ -139,15 +143,16 @@
 					<p>{{courseInformation.Ratings[0]['AVG(cI.lectureRating)'] | number:1}}</p>
 				</div>
 			</div>
-			<ul class="comments_list" ng-show="custom">
-				<li ng-repeat="comments in courseInformation.examComments" class="comments_list_items">
-					<p>{{comments.examComment}}</p>
+			<ul class="comments_list" ng-show="toggle_lecture">
+				<li ng-repeat="comments in courseInformation.lectureComments" class="comments_list_items">
+					<p class="comment">{{comments.lectureComment}}</p>
+					<p class="date" >2014</p>
 				</li>
 			</ul>
-			<span ng-hide="custom">BEHEHE</span>		
+			<span ng-hide="toggle_lecture"></span>		
 			</li>
 
-			<li id="lesson_rating" ng-style="lesson_style" ng-click="getComments()">
+			<li id="lesson_rating" ng-style="lesson_style" ng-click="getComments(toggle_lesson=!toggle_lesson)">
 			<div class="course_information_list_item_container">	
 				<div class="part">
 					<p>Lessons</p>
@@ -162,10 +167,17 @@
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.lessonRating)'] | number:1}}</p>
 				</div>
-			</div>		
+			</div>
+			<ul class="comments_list" ng-show="toggle_lesson">
+				<li ng-repeat="comments in courseInformation.lessonComments" class="comments_list_items">
+					<p class="comment">{{comments.lessonComment}}</p>
+					<p class="date" >2014</p>
+				</li>
+			</ul>
+			<span ng-hide="toggle_lesson"></span>		
 			</li>
 
-			<li id="laboratory_rating" ng-style="lesson_style" ng-click="getComments()">
+			<li id="laboratory_rating" ng-style="laboratory_style" ng-click="getComments(toggle_lab=!toggle_lab)">
 			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Laboratory</p>
@@ -180,10 +192,17 @@
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.laboratoryRating)'] | number:1}}</p>
 				</div>
-			</div>	
+			</div>
+			<ul class="comments_list" ng-show="toggle_lab">
+				<li ng-repeat="comments in courseInformation.laboratoryComments" class="comments_list_items">
+					<p class="comment">{{comments.laboratoryComment}}</p>
+					<p class="date" >2014</p>
+				</li>
+			</ul>
+			<span ng-hide="toggle_lab"></span>			
 			</li>
 
-			<li id="seminar_rating" ng-style="seminar_style" ng-click="getComments()">
+			<li id="seminar_rating" ng-style="seminar_style" ng-click="getComments(toggle_seminar=!toggle_seminar)">
 			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Seminar</p>
@@ -198,10 +217,17 @@
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.seminarRating)'] | number:1}}</p>
 				</div>
-			</div>	
+			</div>
+			<ul class="comments_list" ng-show="toggle_seminar">
+				<li ng-repeat="comments in courseInformation.seminarComments" class="comments_list_items">
+					<p class="comment">{{comments.seminarComment}}</p>
+					<p class="date" >2014</p>
+				</li>
+			</ul>
+			<span ng-hide="toggle_seminar"></span>	
 			</li>
 
-			<li id="project_rating" ng-style="project_style" ng-click="getComments()">
+			<li id="project_rating" ng-style="project_style" ng-click="getComments(toggle_project=!toggle_project)">
 			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Project</p>
@@ -216,10 +242,17 @@
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.projectRating)'] | number:1}}</p>
 				</div>	
-			</div>	
+			</div>
+			<ul class="comments_list" ng-show="toggle_project">
+				<li ng-repeat="comments in courseInformation.projectComments" class="comments_list_items">
+					<p class="comment">{{comments.projectComment}}</p>
+					<p class="date" >2014</p>
+				</li>
+			</ul>
+			<span ng-hide="toggle_project"></span>		
 			</li>
 
-			<li id="homeassignment_rating" ng-style="homeassignment_style" ng-click="getComments()">
+			<li id="homeassignment_rating" ng-style="homeassignment_style" ng-click="getComments(toggle_home=!toggle_home)">
 			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Homeassignment</p>
@@ -234,10 +267,17 @@
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.homeassignmentRating)'] | number:1}}</p>
 				</div>
-			</div>	
+			</div>
+			<ul class="comments_list" ng-show="toggle_home">
+				<li ng-repeat="comments in courseInformation.homeassignmentComments" class="comments_list_items">
+					<p class="comment">{{comments.homeassignmentComment}}</p>
+					<p class="date" >2014</p>
+				</li>
+			</ul>
+			<span ng-hide="toggle_home"></span>		
 			</li>
 
-			<li id="case_rating" ng-style="case_style" ng-click="getComments()">
+			<li id="case_rating" ng-style="case_style" ng-click="getComments(toggle_case=!toggle_case)">
 			<div class="course_information_list_item_container">
 				<div class="part">
 					<p>Case</p>
@@ -252,7 +292,14 @@
 				<div class="part_rating">
 					<p>{{courseInformation.Ratings[0]['AVG(cI.caseRating)'] | number:1}}</p>
 				</div>
-			</div>	
+			</div>
+			<ul class="comments_list" ng-show="toggle_case">
+				<li ng-repeat="comments in courseInformation.caseComments" class="comments_list_items">
+					<p>{{comments.caseComment}}</p>
+					<p>2014</p>
+				</li>
+			</ul>
+			<span ng-hide="toggle_case"></span>		
 			</li>
 		</ul>		
 		</div> <!-- ng-switch ratings -->

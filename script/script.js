@@ -34,12 +34,6 @@ courseApp.config(function($routeProvider){
 		});
 });
 
-//Controller
-courseApp.controller('mainController', function($scope){
-	//Test
-	$scope.message = 'Hello world';
-});
-
 
 courseApp.controller('aboutController', function($scope){
 	$scope.message = 'Im all about the bass';

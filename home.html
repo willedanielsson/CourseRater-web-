@@ -3,4 +3,60 @@
 
 	<p>{{message}}</p>
 
+
+	<div id="registration">
+		
+		<form id="registration_form" action="register.php" method="post" accept-charset='UTF-8'>
+			<div class="form_item">
+				<label for="email">
+					<i class="fa fa-envelope-o"></i>
+				</label>
+				<input type="email" name="email" placeholder="Email" required />
+
+			</div>	
+			
+			<div class="form_item">
+				<label for="country">
+					<i class="fa fa-globe"></i>
+				</label>
+				<select name="country" ng-model="model_selectedCountry" ng-change="getUniversities(model_selectedCountry)" required>
+					<option value="" disabled selected>Select Country</option>
+					<option ng-repeat="country in countries">
+						{{country}}
+					</option>	
+				</select>
+			</div>
+
+			<div class="form_item">
+				<label for="university">
+					<i class="fa fa-university"></i>
+				</label>
+				<select name="university" required>
+					<option value="" disabled selected>Select University</option>
+					<option ng-repeat="university in universities">
+						{{university}}
+					</option>
+				</select>
+			</div>
+			
+			<div class="form_item">
+				<label for="password">
+					<i class="fa fa-shield"></i>
+				</label>
+				<input type="password" name="password" placeholder="Password" required/>
+			</div>
+			
+			<div class="form_item">
+				<label for=repassword>
+					<i class="fa fa-shield"></i>
+				</label>		
+				<input type="password" name="repassword" placeholder="Repeat Password" required />
+			</div>
+			
+			<input type="submit" class="button" value="Register"/>
+		</form>
+
+
+	</div>
+
 </div>

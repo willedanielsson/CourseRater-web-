@@ -52,7 +52,7 @@ body p, body h1, body a, body span{
 }
 
 .fa{
-	color: green;
+	color: #78F36B;
 }
 
 #navigation .active{
@@ -83,7 +83,7 @@ body p, body h1, body a, body span{
 #navigation #login_box #login_inputs input{
 	display: block;
 	margin-bottom: 5px;
-	border: 1px solid green;
+	border: 1px solid #78F36B;
 
 	font-size: 15px;
 }
