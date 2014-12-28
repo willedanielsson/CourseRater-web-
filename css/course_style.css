@@ -64,8 +64,6 @@
 }
 
 .courses button{
-	padding: 10	px 30px 0px 25px;
-
 	font-size: 16px;
   	font-weight: 600;
   	color: #F0FFFF;
@@ -104,14 +102,8 @@
 
 }
 
-.courses #add_course_holder .alert{
-	font-size: 15px;
-	color: red;
-	display: none;
-}
 
 .courses #add_course_holder #add_course_button{
-	border: 2px solid #78F36B;
 	margin-left: 50px;
 
 }
@@ -135,11 +127,19 @@
 .courses #course_information .general_rating{
 	font-size: 40px;
 	font-weight: bold;
-	padding-left: 600px;
+	padding-left: 447px;
 	display: table-cell;
 	color: #78F36B;
 }
 
+.courses #course_information #add_review_button{
+	display: table-cell;
+	top: -9px;
+	margin-left: 60px;
+}
+.courses #course_information #add_review_button:hover{
+	top: -6px;
+}
 
 .courses #course_information ul{
 	list-style: none;
@@ -151,6 +151,7 @@
 	margin-left: 50px;
 	margin-right: 50px;
 	margin-bottom: 10px;
+	width: 650px;
 
 	border-radius: 5px;
 	border: 1px solid #78F36B;
@@ -184,7 +185,7 @@ box-shadow: none;
 }
 
 .courses #course_information li .part{
-	width: 350px;
+	width: 250px;
 	display: table-cell;
 	padding-bottom: 15px;
 	padding-left: 10px;
@@ -192,7 +193,7 @@ box-shadow: none;
 
 
 .courses #course_information li .progress_div{
-	width: 350px;
+	width: 250px;
 	margin-left: 50px;
 	display: table-cell;
 	margin-left: 150px;
@@ -270,9 +271,12 @@ box-shadow: none;
 .courses #add_course_form_div #checkbox_div {
 	margin-top: 20px;
 }
+
+.courses #add_course_form_div #checkbox_div .input_div{
+	margin-top: 10px;
+}
 .courses #add_course_form_div #checkbox_div label{
 	margin-left: 15px;
-	padding-top: 20px;
 	display: inline;
 }
 
@@ -300,6 +304,10 @@ box-shadow: none;
 height: 40px;
 }
 
+
+.courses #add_review #form_div_review{
+	float: none;
+}
 
 
 

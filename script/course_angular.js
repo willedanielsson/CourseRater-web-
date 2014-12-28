@@ -1,3 +1,5 @@
+
+
 courseApp.controller('courseController', function($scope, $http){
 
 	$http.get("http://www.ashiya.se/Develop/CourseRaterWeb/Production/getCountries.php").success(function(response){
@@ -5,6 +7,8 @@ courseApp.controller('courseController', function($scope, $http){
 	});
 
 	$scope.page = 'def';
+	$scope.parts=['Lectures', 'Lessons', 'Exam', 'Laboratory', 'Seminar', 'Project', 'Case'];
+
 
   	$scope.getUniversities = function(country){
   		$http.get("http://www.ashiya.se/Develop/CourseRaterWeb/Production/getUniversitiesForCountry.php?country="+country).success(function(response){
@@ -40,20 +44,15 @@ courseApp.controller('courseController', function($scope, $http){
 	}
 
 
-	$scope.addCourse = function(country, university){
-		country = "Sweden";
-		university = "Linköpings";
+	$scope.addCourse = function(){
+			$scope.page='addCourse';
+	}
 
-		//if(country==null || university==null){
-			//$scope.style_add_course_alert = {
-			//	'display' : "block"
-		//	}
-		//}else{
-			$scope.page='add';
-			$scope.country = country;
-			$scope.university = university;
-		//}
-		
+	$scope.addReview = function(course){
+		$scope.page="addReview"
+		//$scope.course = course;
+		$scope.course="TANA21";
+
 	}
 
 	$scope.getCourseInformation = function(course, value){

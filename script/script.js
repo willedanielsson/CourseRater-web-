@@ -1,5 +1,5 @@
 //Module
-var courseApp = angular.module('courseApp', ['ngRoute', 'ngAnimate']);
+var courseApp = angular.module('courseApp', ['ngRoute']);
 
 courseApp.controller('NavController', function($scope, $location){
 	$scope.isActive = function(route){
@@ -23,9 +23,9 @@ courseApp.config(function($routeProvider){
 			controller : 'courseController'
 		})
 
-		.when('/about', {
-			templateUrl : 'about.html',
-			controller : 'aboutController'
+		.when('/message', {
+			templateUrl : 'message.php',
+			controller : 'messageController'
 		})
 
 		.when('/contact', {
@@ -35,7 +35,7 @@ courseApp.config(function($routeProvider){
 });
 
 
-courseApp.controller('aboutController', function($scope){
+courseApp.controller('messageController', function($scope){
 	$scope.message = 'Im all about the bass';
 });
 

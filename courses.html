@@ -44,8 +44,9 @@
 		<div class="course_div" id="add_course_holder">
 			<p>Cant find a course?</p>
 
-			<p class="alert" ng-style="style_add_course_alert">Choose a country and univerity first</p>
-			<button id="add_course_button" ng-click="addCourse(model_selectedCountry, model_selectedUniversity)" ng-model="view_or_add">Add Course</button>
+			<button id="add_course_button" ng-click="addCourse()" ng-model="view_or_add">Add Course</button>
+			<!-- DEVELOP -->
+			<button id="add_review_button" ng-click="addReview(model_course_input)">Add Review</button>	
 		</div>
 	</div>
 
@@ -59,6 +60,9 @@
 		<div class="switch" id="course_rating" ng-switch-when="view">
 			<h1>{{course}}</h1>
 			<p class="general_rating">{{generalRating}}
+
+			<button id="add_review_button" ng-click="addReview()">Add Review</button>	
+			</p>	
 			<ul>
 
 <!-- Usefulness -->			
@@ -307,12 +311,12 @@
 
 <!-- ----------------------------ADD COURse ------------------------------>		
 
-		<div id="add_course" ng-switch-when="add">
+		<div id="add_course" ng-switch-when="addCourse">
 			<p>{{country}} : {{university}}</p>
 
 			<div id="add_course_form_div" class="form_div">
 			
-				<form id="add_course_form" class="form_form" action="" method="get" accept-charset='UTF-8'>
+				<form id="add_course_form" class="form_form" action="http://localhost:8888/CourseRaterWeb/Production/addCourseWeb.php" method="POST" accept-charset='UTF-8'>
 
 					<div class="form_item">
 						<label for="country">
@@ -339,51 +343,69 @@
 					</div>
 					
 					<div class="form_item">
-						<label for="password">
+						<label for="courseCode">
 							<i class="fa fa-book"></i>
 						</label>
 						<input type="text" name="courseCode" placeholder="Course code" required/>
 					</div>
+
+
 					<div id="checkbox_div">		
-						<label for="lectures_part">
-							<input type="checkbox" name="course_part" id="lectures_part" checked>
-							<span>Lectures</span>
-						</label><br>
+						<div class="input_div">
+							<label for="lectures_part">
+								<input type="checkbox" name="course_part_lectures" id="lectures_part">
+								<span>Lectures</span>
+							</label>
+						</div>
 	
-						<label for="lessons_part">
-							<input type="checkbox" name="course_part" id="lessons_part">
-							<span>Lessons</span>
-						</label><br>
-
-						<label for="exam_part">
-							<input type="checkbox" name="course_part" id="exam_part">
-							<span>Exam</span>
-						</label><br>
+						<div class="input_div">
+							<label for="lessons_part">
+								<input type="checkbox" name="course_part_lessons" id="lessons_part">
+								<span>Lessons</span>
+							</label>
+						</div>
+						
+						<div class="input_div">
+							<label for="exam_part">
+								<input type="checkbox" name="course_part_exam" id="exam_part">
+								<span>Exam</span>
+							</label>
+						</div>
 							
-						<label for="laboratory_part">	
-							<input type="checkbox" name="course_part" id="laboratory_part">
-							<span>Laboratory</span>
-						</label><br>
+						<div class="input_div">
+							<label for="laboratory_part">	
+								<input type="checkbox" name="course_part_laboratory" id="laboratory_part">
+								<span>Laboratory</span>
+							</label>
+						</div>
 
-						<label for="seminar_part">
-							<input type="checkbox" name="course_part" id="seminar_part">
-							<span>Seminar</span>
-						</label><br>
+						<div class="input_div">
+							<label for="seminar_part">
+								<input type="checkbox" name="course_part_seminar" id="seminar_part">
+								<span>Seminar</span>
+							</label>
+						</div>
 	
-						<label for="project_part">
-							<input type="checkbox" name="course_part" id="project_part">
-							<span>Project</span>
-						</label><br>
+						<div class="input_div">
+							<label for="project_part">
+								<input type="checkbox" name="course_part_project" id="project_part">
+								<span>Project</span>
+							</label>
+						</div>
 
-						<label for="homeassignment_part">
-							<input type="checkbox" name="course_part" id="homeassignment_part">
-							<span>Homeassignment</span>
-						</label><br>
-
-						<label for="case_part">
-							<input type="checkbox" name="course_part" id="case_part">
-							<span>Case</span>
-						</label><br>
+						<div class="input_div">
+							<label for="homeassignment_part">
+								<input type="checkbox" name="course_part_homeassignment" id="homeassignment_part">
+								<span>Homeassignment</span>
+							</label>
+						</div>
+	
+						<div class="input_div">
+							<label for="case_part">
+								<input type="checkbox" name="course_part_case" id="case_part">
+								<span>Case</span>
+							</label>
+						</div>
 					</div>
 					
 					<input type="submit" class="button" id="add_course_form_button"value="Add"/>
@@ -392,6 +414,28 @@
 			</div>
 			<br style="clear:both;"/>
 		</div>
+<!----------------------- ADD REVIEW  -------------------------------->
+		<div id="add_review" ng-switch-when="addReview">
+			<h1>{{course}}</h1>
+
+			<div class="form_div" id="form_div_review">
+				<form class="form_form">
+					<div id="review_usefulness">
+						<p>Usefulness</p>
+							
+					</div>
+
+					<div id="review_diificulty">
+						<p>Difficulty</p>
+										
+					</div>
+
+				    <div ng-repeat="x in parts">
+				      	<p>{{ x }}</p>
+				    </div>
+				</form>
+			</div>
+		</div>	
 	</div>
 
 </div>
