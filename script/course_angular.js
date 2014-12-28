@@ -4,6 +4,8 @@ courseApp.controller('courseController', function($scope, $http){
 		$scope.countries = response;
 	});
 
+	$scope.page = 'def';
+
   	$scope.getUniversities = function(country){
   		$http.get("http://www.ashiya.se/Develop/CourseRaterWeb/Production/getUniversitiesForCountry.php?country="+country).success(function(response){
   			$scope.universities = response;
@@ -37,19 +39,29 @@ courseApp.controller('courseController', function($scope, $http){
 		button.removeAttr('disabled');
 	}
 
-	$scope.getComments = function(boolean, part){
-		
-	
+
+	$scope.addCourse = function(country, university){
+		country = "Sweden";
+		university = "Linköpings";
+
+		//if(country==null || university==null){
+			//$scope.style_add_course_alert = {
+			//	'display' : "block"
+		//	}
+		//}else{
+			$scope.page='add';
+			$scope.country = country;
+			$scope.university = university;
+		//}
 		
 	}
 
-	$scope.getCourseInformation = function(course, ratings_or_comments){
+	$scope.getCourseInformation = function(course, value){
 
 		//When pressed 'View Course', we display the ratings by default
-		$scope.ratings_or_comments = ratings_or_comments;
+		$scope.page='view';
 
 		$scope.course = course;
-		console.log(course);
 		$http.get("http://localhost:8888/Test/getCourseInformation.php?chosenCourse="+course).success(function(response){
 
 			//Give the ratings their needed data

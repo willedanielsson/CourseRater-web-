@@ -1,29 +1,34 @@
 <div class="home">
 
 	<div id="home_information">
-		<h1>Home page</h1>
+		<div id="about">
+			<h1>CourseRater</h1>
+			<h2>The simple way to evaluate courses</h2>
+		</div>
+		<div id="news">
+			<h1>Soon on Android</h1>
+			<i class="fa fa-android" id="android"></i>
+		</div>	
+	</div>
 
-		<p>{{message}}</p>
-	</div>	
-
-	<div id="registration">
+	<div id="registration" class="form_div">
 		
-		<form id="registration_form" action="http://www.ashiya.se/Develop/CourseRaterWeb/Production/register.php" method="get" accept-charset='UTF-8'>
+		<form id="registration_form" class="form_form"action="http://www.ashiya.se/Develop/CourseRaterWeb/Production/register.php" method="get" accept-charset='UTF-8'>
 			<h1>Become a member</h1>
 			<h2>It's easy and free!</h2>
+
 			<div class="form_item">
 				<label for="email">
 					<i class="fa fa-envelope-o"></i>
 				</label>
 				<input type="email" name="email" placeholder="Email" required/>
-
 			</div>	
 			
 			<div class="form_item">
 				<label for="country">
 					<i class="fa fa-globe"></i>
 				</label>
-				<select name="country" ng-model="model_selectedCountry" ng-change="getUniversities(model_selectedCountry)" >
+				<select name="country" ng-model="model_selectedCountry" ng-change="getUniversities(model_selectedCountry)" required>
 					<option value="" disabled selected>Select Country</option>
 					<option ng-repeat="country in countries">
 						{{country}}
@@ -35,7 +40,7 @@
 				<label for="university">
 					<i class="fa fa-university"></i>
 				</label>
-				<select name="university">
+				<select name="university" required>
 					<option value="" disabled selected>Select University</option>
 					<option ng-repeat="university in universities">
 						{{university}}
@@ -47,14 +52,14 @@
 				<label for="password">
 					<i class="fa fa-shield"></i>
 				</label>
-				<input type="password" name="password" placeholder="Password"/>
+				<input type="password" name="password" placeholder="Password" required/>
 			</div>
 			
 			<div class="form_item">
 				<label for=repassword>
 					<i class="fa fa-shield"></i>
 				</label>		
-				<input type="password" name="repassword" placeholder="Repeat Password"/>
+				<input type="password" name="repassword" placeholder="Repeat Password" required/>
 			</div>
 			
 			<input type="submit" class="button" value="Register"/>

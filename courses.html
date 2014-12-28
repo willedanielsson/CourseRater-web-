@@ -37,91 +37,94 @@
 
 			</div>
 
-				<button id="view_course_button" ng-click="getCourseInformation(model_course_input)" ng-style="styleViewCourseButton">View Ratings</button>	
+				<button id="view_course_button" ng-click="getCourseInformation(model_course_input)" ng-style="styleViewCourseButton" ng-model="view_or_add">View Ratings</button>	
 				
 		</div>
 
 		<div class="course_div" id="add_course_holder">
 			<p>Cant find a course?</p>
-			<button id="add_course_button" ng-click="ratings_or_comments='ratings'">Add Course</button>
+
+			<p class="alert" ng-style="style_add_course_alert">Choose a country and univerity first</p>
+			<button id="add_course_button" ng-click="addCourse(model_selectedCountry, model_selectedUniversity)" ng-model="view_or_add">Add Course</button>
 		</div>
 	</div>
 
-	<div id="course_information" ng-switch on="ratings_or_comments">
+	<div>
+	<div id="course_information" ng-switch on="page">
 		
-		<div class="switch" ng-switch-default>
+		<div class="switch" ng-switch-when="def">
 			<!-- Empty Div is default-->
 		</div>
 
-		<div class="switch" id="course_rating" ng-switch-when="ratings">
+		<div class="switch" id="course_rating" ng-switch-when="view">
 			<h1>{{course}}</h1>
 			<p class="general_rating">{{generalRating}}
-		<ul>
+			<ul>
 
 <!-- Usefulness -->			
-			<li id="usefulness" ng-style="usefulness_style">
-			<div class="course_information_list_item_container">
-				<div class="part">
-					<p>Usefulness</p>
-				</div>
+				<li id="usefulness" ng-style="usefulness_style">
+					<div class="course_information_list_item_container">
+						<div class="part">
+							<p>Usefulness</p>
+						</div>
 
-				<div class="progress_div">
-					<div class="progress_bar">
-						<div ng-style="usefulness_bar"></div>
+						<div class="progress_div">
+							<div class="progress_bar">
+								<div ng-style="usefulness_bar"></div>
+							</div>
+						</div>	
+						
+						<div class="part_rating">
+							<p>{{courseInformation.Ratings[0]['AVG(cI.usefulness)'] | number:1}}</p>
+						</div>
 					</div>
-				</div>	
-				
-				<div class="part_rating">
-					<p>{{courseInformation.Ratings[0]['AVG(cI.usefulness)'] | number:1}}</p>
-				</div>
-			</div>
-			</li>
+				</li>
 
 <!-- Difficulty -->		
-			<li id="difficulty" ng-style="difficulty_style">
-			<div class="course_information_list_item_container">	
-				<div class="part">
-					<p>Difficulty</p>
-				</div>
+				<li id="difficulty" ng-style="difficulty_style">
+					<div class="course_information_list_item_container">	
+						<div class="part">
+							<p>Difficulty</p>
+						</div>
 				
-				<div class="progress_div">
-					<div class="progress_bar">
-						<div ng-style="difficulty_bar"></div>
-					</div>
-				</div>
+						<div class="progress_div">
+							<div class="progress_bar">
+								<div ng-style="difficulty_bar"></div>
+							</div>
+						</div>
 				
-				<div class="part_rating">
-					<p>{{courseInformation.Ratings[0]['AVG(cI.difficulty)'] | number:1}}</p>
-				</div>
-			</div>	
-			</li>
+						<div class="part_rating">
+							<p>{{courseInformation.Ratings[0]['AVG(cI.difficulty)'] | number:1}}</p>
+						</div>
+					</div>	
+				</li>
 
 <!-- Exam -->
-			<li id="exam_rating" ng-style="exam_style" ng-click="getComments(toggle_exam=!toggle_exam, 'exam')">
-			<div class="course_information_list_item_container">	
-				<div class="part">
-					<p>Exam</p>
-				</div>
+				<li id="exam_rating" ng-style="exam_style" ng-click="getComments(toggle_exam=!toggle_exam, 'exam')">
+					<div class="course_information_list_item_container">	
+						<div class="part">
+							<p>Exam</p>
+						</div>
 
-				<div class="progress_div">
-					<div class="progress_bar">
-						<div ng-style="exam_bar"></div>
-					</div>
-				</div>
-				
-				<div class="part_rating">
-					<p>{{courseInformation.Ratings[0]['AVG(cI.examRating)'] | number:1}}</p>
-				</div>
-			</div>	
-			<ul class="comments_list" ng-show="toggle_exam">
-				<li ng-repeat="comments in courseInformation.examComments" class="comments_list_items">
-					<p class="comment" >{{comments.examComment}}</p>
-					<p class="date" >2014</p>
+						<div class="progress_div">
+							<div class="progress_bar">
+								<div ng-style="exam_bar"></div>
+							</div>
+						</div>
+					
+						<div class="part_rating">
+							<p>{{courseInformation.Ratings[0]['AVG(cI.examRating)'] | number:1}}</p>
+						</div>
+					</div>	
+					<ul class="comments_list" ng-show="toggle_exam">
+						<li ng-repeat="comments in courseInformation.examComments" class="comments_list_items">
+							<p class="comment" >{{comments.examComment}}</p>
+							<p class="date" >2014</p>
+						</li>
+					</ul>
+
+					<span ng-hide="toggle_exam"></span>
 				</li>
-			</ul>
-
-			<span ng-hide="toggle_exam"></span>
-			</li>
 
 			
 <!-- Lecture -->			
@@ -302,12 +305,93 @@
 		</ul>		
 		</div> <!-- ng-switch ratings -->
 
+<!-- ----------------------------ADD COURse ------------------------------>		
 
+		<div id="add_course" ng-switch-when="add">
+			<p>{{country}} : {{university}}</p>
 
-		<div ng-switch-when="comments">
+			<div id="add_course_form_div" class="form_div">
 			
-			
-		</div>	
+				<form id="add_course_form" class="form_form" action="" method="get" accept-charset='UTF-8'>
+
+					<div class="form_item">
+						<label for="country">
+							<i class="fa fa-globe"></i>
+						</label>
+						<select name="country" ng-model="model_selectedCountry" ng-change="getUniversities(model_selectedCountry)" required>
+							<option value="" disabled selected>Select Country</option>
+							<option ng-repeat="country in countries">
+								{{country}}
+							</option>	
+						</select>
+					</div>
+
+					<div class="form_item">
+						<label for="university">
+							<i class="fa fa-university"></i>
+						</label>
+						<select name="university" required>
+							<option value="" disabled selected>Select University</option>
+							<option ng-repeat="university in universities">
+								{{university}}
+							</option>
+						</select>
+					</div>
+					
+					<div class="form_item">
+						<label for="password">
+							<i class="fa fa-book"></i>
+						</label>
+						<input type="text" name="courseCode" placeholder="Course code" required/>
+					</div>
+					<div id="checkbox_div">		
+						<label for="lectures_part">
+							<input type="checkbox" name="course_part" id="lectures_part" checked>
+							<span>Lectures</span>
+						</label><br>
+	
+						<label for="lessons_part">
+							<input type="checkbox" name="course_part" id="lessons_part">
+							<span>Lessons</span>
+						</label><br>
+
+						<label for="exam_part">
+							<input type="checkbox" name="course_part" id="exam_part">
+							<span>Exam</span>
+						</label><br>
+							
+						<label for="laboratory_part">	
+							<input type="checkbox" name="course_part" id="laboratory_part">
+							<span>Laboratory</span>
+						</label><br>
+
+						<label for="seminar_part">
+							<input type="checkbox" name="course_part" id="seminar_part">
+							<span>Seminar</span>
+						</label><br>
+	
+						<label for="project_part">
+							<input type="checkbox" name="course_part" id="project_part">
+							<span>Project</span>
+						</label><br>
+
+						<label for="homeassignment_part">
+							<input type="checkbox" name="course_part" id="homeassignment_part">
+							<span>Homeassignment</span>
+						</label><br>
+
+						<label for="case_part">
+							<input type="checkbox" name="course_part" id="case_part">
+							<span>Case</span>
+						</label><br>
+					</div>
+					
+					<input type="submit" class="button" id="add_course_form_button"value="Add"/>
+				</form>
+
+			</div>
+			<br style="clear:both;"/>
+		</div>
 	</div>
 
 </div>
