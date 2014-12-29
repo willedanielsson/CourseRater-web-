@@ -124,7 +124,7 @@
 	display: table-cell;
 }
 
-.courses #course_information .general_rating{
+.courses #course_information #course_rating .general_rating{
 	font-size: 40px;
 	font-weight: bold;
 	padding-left: 447px;
@@ -132,22 +132,22 @@
 	color: #78F36B;
 }
 
-.courses #course_information #add_review_button{
+.courses #course_information #course_rating#add_review_button{
 	display: table-cell;
 	top: -9px;
 	margin-left: 60px;
 }
-.courses #course_information #add_review_button:hover{
+.courses #course_information #course_rating #add_review_button:hover{
 	top: -6px;
 }
 
-.courses #course_information ul{
+.courses #course_information #course_rating ul{
 	list-style: none;
 	margin-top: 10px;
 
 }
 
-.courses #course_information li{
+.courses #course_information #course_rating li{
 	margin-left: 50px;
 	margin-right: 50px;
 	margin-bottom: 10px;
@@ -158,33 +158,33 @@
 	box-shadow: 0px 1px 5px #888888;
 }
 
-.courses #course_information li:hover{
+.courses #course_information #course_rating li:hover{
 	cursor: pointer;
 	box-shadow: 0px 5px 5px #888888;
 }
 
-.courses #course_information #usefulness,
-.courses #course_information #difficulty{
+.courses #course_information #course_rating #usefulness,
+.courses #course_information #course_rating #difficulty{
 box-shadow: none;
 }
 
-.courses #course_information #usefulness:hover,
-.courses #course_information #difficulty:hover{
+.courses #course_information #course_rating #usefulness:hover,
+.courses #course_information #course_rating #difficulty:hover{
 	cursor: default;
 	box-shadow: none;
 }
-.courses #course_information li .course_information_list_item_container{
+.courses #course_information #course_rating li .course_information_list_item_container{
 	margin-top: 12px;
 
 }
 
-.courses #course_information li p{
+.courses #course_information #course_rating li p{
 	font-size: 30px;
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
 
-.courses #course_information li .part{
+.courses #course_information #course_rating li .part{
 	width: 250px;
 	display: table-cell;
 	padding-bottom: 15px;
@@ -192,35 +192,35 @@ box-shadow: none;
 }
 
 
-.courses #course_information li .progress_div{
+.courses #course_information #course_rating li .progress_div{
 	width: 250px;
 	margin-left: 50px;
 	display: table-cell;
 	margin-left: 150px;
 }
 
-.courses #course_information li .progress_div .progress_bar{
+.courses #course_information #course_rating li .progress_div .progress_bar{
 	border:1px solid black;
 	width: 240px;
 }
 
-.courses #course_information li .progress_div .progress_bar > div{
+.courses #course_information #course_rating li .progress_div .progress_bar > div{
 	background-color: #78F36B;
 	width: 50%;
 	height: 20px;
 }
-.courses #course_information li .part_rating{
+.courses #course_information #course_rating li .part_rating{
 	width: 50px;	
 	display: table-cell;
 }
 
-.courses #course_information li .part_rating p{
+.courses #course_information #course_rating li .part_rating p{
 	margin-right: 10px;
 	margin-bottom: 0px;
 	margin-top: 0px;
 }
 
-.courses #course_information .comments_list{
+.courses #course_information #course_rating .comments_list{
 	margin-left: 10px;
 	margin-right: 10px;
 
@@ -228,7 +228,7 @@ box-shadow: none;
 	overflow-y: scroll;
 }
 
-.courses #course_information .comments_list .comments_list_items{
+.courses #course_information #course_rating .comments_list .comments_list_items{
 	border: none;
 	box-shadow: 0px 0px 10px #888888;
 	height: auto;
@@ -239,7 +239,7 @@ box-shadow: none;
 
 }
 
-.courses #course_information .comments_list .comments_list_items .comment{
+.courses #course_information #course_rating .comments_list .comments_list_items .comment{
 	font-size: 17px;
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -248,7 +248,7 @@ box-shadow: none;
 	color: gray;
 }
 
-.courses #course_information .comments_list .comments_list_items .date{
+.courses #course_information #course_rating .comments_list .comments_list_items .date{
 	font-size: 8px;
 	font-style: italic;
 	position: absolute;
@@ -309,6 +309,26 @@ height: 40px;
 	float: none;
 }
 
+
+.courses #add_review #form_div_review .rating {
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+}
+.courses #add_review #form_div_review ul.rating {
+    display: inline-block;
+}
+.courses #add_review #form_div_review .rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 1px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+.courses #add_review #form_div_review .rating .filled {
+    color: red;
+}
 
 
 

@@ -419,20 +419,18 @@
 			<h1>{{course}}</h1>
 
 			<div class="form_div" id="form_div_review">
-				<form class="form_form">
-					<div id="review_usefulness">
-						<p>Usefulness</p>
-							
-					</div>
+				<form class="form_form"  ng-controller="formController">
+					
+					<div>
+						<span ng-repeat="rating in ratings">{{rating.name}}
+       						<div star-rating rating-value="rating.current" max="rating.max"
+       					 	on-rating-selected="getSelectedRating(rating)"></div>
 
-					<div id="review_diificulty">
-						<p>Difficulty</p>
-										
-					</div>
+       					 	<!-- ADd comment box here -->
+        				</span>
+    				</div>
 
-				    <div ng-repeat="x in parts">
-				      	<p>{{ x }}</p>
-				    </div>
+				<input type="submit" ng-click="submitReview()" class="button" id="add_review_form_button"value="Add"/>
 				</form>
 			</div>
 		</div>	
