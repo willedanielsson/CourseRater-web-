@@ -1,5 +1,3 @@
-
-
 courseApp.controller('courseController', function($scope, $http){
 
 	$http.get("http://www.ashiya.se/Develop/CourseRaterWeb/Production/getCountries.php").success(function(response){
@@ -48,10 +46,12 @@ courseApp.controller('courseController', function($scope, $http){
 			$scope.page='addCourse';
 	}
 
-	$scope.addReview = function(course){
+	$scope.addReview = function(course, university){
 		$scope.page="addReview"
 		//$scope.course = course;
+		//$scope.university = university;
 		$scope.course="TANA21";
+		$scope.university = "Linköpings tekniska högskola";
 
 	}
 

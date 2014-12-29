@@ -1,18 +1,191 @@
-courseApp.controller('formController', ['$scope', function ($scope) {
+courseApp.controller('formController', function($scope, $http) {
 
-    $scope.submitReview = function (){
-        console.log("Sending");
-        console.log("Usefulness"+$scope.ratings[0].current);
-        console.log("Difficulty"+$scope.ratings[1].current);
-        console.log("Lectures"+$scope.ratings[2].current);
+    // Get values of chosen course to check which parts that is in the course
+    var university = $scope.university;
+    var course = $scope.course;
+
+    $http.get("http://www.ashiya.se/Develop/CourseRaterWeb/Production/getReviewParts.php?university="+university+"&course="+course).success(function(response){
+        $scope.reviewParts = response;
+
+        if($scope.reviewParts[0]==1){
+            var lecturesObject = {
+                current: 1,
+                name: "Lectures",
+                comment: "",
+                max: 5
+            };
+            $scope.ratings.push(lecturesObject);
+        }
+
+        if($scope.reviewParts[1]==1){
+            var lessonsObject = {
+                current: 1,
+                name: "Lessons",
+                comment: "",
+                max: 5
+            };
+            $scope.ratings.push(lessonsObject);
+        }
+
+        if($scope.reviewParts[2]==1){
+            var examObject = {
+                current: 1,
+                name: "Exam",
+                comment: "",
+                max: 5
+            };
+            $scope.ratings.push(examObject);
+        }
+
+        if($scope.reviewParts[3]==1){
+            var laboratoryObject = {
+                current: 1,
+                name: "Laboratory",
+                comment: "",
+                max: 5
+            };
+            $scope.ratings.push(laboratoryObject);
+        }
+
+        if($scope.reviewParts[4]==1){
+            var seminarObject = {
+                current: 1,
+                name: "Seminar",
+                comment: "",
+                max: 5
+            };
+            $scope.ratings.push(seminarObject);
+        }
+
+        if($scope.reviewParts[5]==1){
+            var projectObject = {
+                current: 1,
+                name: "Project",
+                comment: "",
+                max: 5
+            };
+            $scope.ratings.push(projectObject);
+        }
+
+        if($scope.reviewParts[6]==1){
+            var homeassignmentObject = {
+                current: 1,
+                name: "Homeassignment",
+                comment: "",
+                max: 5
+            };
+            $scope.ratings.push(homeassignmentObject);
+        }
+
+        if($scope.reviewParts[7]==1){
+            var caseObject = {
+                current: 1,
+                name: "Case",
+                comment: "",
+                max: 5
+            };
+            $scope.ratings.push(caseObject);
+        }
+
+    });
+
+   
+
+
+    $scope.submitReview = function (data){
+        
+        console.log("Usefulness :"+data[0].current);
+        console.log("Exam Comment :"+data[2].comment);
+
+        var usefulnessRating = data[0].current;
+        var difficultyRating = data[1].current;
+     
+        var lecturesRating=0;
+        var lecturesComment="";
+        var lessonsRating=0;
+        var lessonsComment="";
+        var examRating=0;
+        var examComment="";
+        var laboratoryRating=0;
+        var laboratoryComment="";
+        var seminarRating=0;
+        var seminarComment="";
+        var projectRating=0;
+        var projectComment="";
+        var homeassignmentRating=0;
+        var homeassignmentComment=" ";
+        var caseRating=0;
+        var caseComment=" ";
+
+        if(data[2]!==undefined){
+            var lecturesRating = data[2].current;
+            var lecturesComment = data[2].comment;
+        }
+
+        if(data[3]!==undefined){
+            var lessonsRating = data[3].current;
+            var lessonsComment = data[3].comment;
+        }
+
+        if(data[4]!==undefined){
+            var examRating = data[4].current;
+            var examComment = data[4].comment;
+        }
+
+        if(data[5]!==undefined){
+            var laboratoryRating = data[5].current;
+            var laboratoryComment = data[5].comment;
+        }
+        
+        if(data[6]!==undefined){
+            var seminarRating = data[6].current;
+            var seminarComment = data[6].comment;
+        }
+
+        if(data[7]!==undefined){
+            var projectRating = data[7].current;
+            var projectComment = data[7].comment;
+        }
+
+        if(data[8]!==undefined){
+            var homeassignmentRating = data[8].current;
+            var homeassignmentComment = data[8].comment;
+        }
+
+        if(data[9]!==undefined){
+            var caseRating = data[9].current;
+            var caseComment = data[9].comment;
+        }
+        inputData = {
+            'course': course,
+            'university': university,
+            'usefulnessRating': usefulnessRating,
+            'difficultyRating': difficultyRating,
+            'lectureRating': lecturesRating,
+            'lectureComment': lecturesComment,
+            'lessonRating': lessonsRating,
+            'lessonComment': lessonsComment,
+            'examRating': examRating,
+            'examComment': examComment,
+            'laboratoryRating': laboratoryRating,
+            'laboratoryComment': laboratoryComment,
+            'seminarRating': seminarRating,
+            'seminarComment': seminarComment,
+            'projectRating': projectRating,
+            'projectComment': projectComment,
+            'homeassignmentRating': homeassignmentRating,
+            'homeassignmentComment': homeassignmentComment,
+            'caseRating': caseRating,
+            'caseComment': caseComment
+        };
+        console.log(inputData);
+        $http.post("http://localhost:8888/CourseRaterWeb/Production/addReviewWeb.php", inputData).success(function(response){
+           console.log(response);
+        });
+
+
     }
 
-
-
-    $scope.rating = 0;
-    
-    $scope.parts=['Lectures', 'Lessons'];
-    
     $scope.ratings = [{
         current: 1,
         name: "Usefulness",
@@ -21,40 +194,15 @@ courseApp.controller('formController', ['$scope', function ($scope) {
         current: 1,
         name: "Difficulty",
         max: 5
-    }, {
-        current: 1,
-        name: "Lectures",
-        max: 5
-    }, {
-        current: 1,
-        name: "Lessons",
-        max: 5
-    }, {
-        current: 1,
-        name: "Exam",
-        max: 5
-    }, {
-        current: 1,
-        name: "Laboratory",
-        max: 5
-    }, {
-        current: 1,
-        name: "Seminar",
-        max: 5
-    }, {
-        current: 1,
-        name: "Project",
-        max: 5
-    }, {
-        current: 1,
-        name: "Case",
-        max: 5
     }];
+
+    $scope.rating = 0;
+    
 
     $scope.getSelectedRating = function (rating) {
         
     }
-}]);
+});
 
 courseApp.directive('starRating', function () {
     return {

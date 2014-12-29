@@ -46,7 +46,7 @@
 
 			<button id="add_course_button" ng-click="addCourse()" ng-model="view_or_add">Add Course</button>
 			<!-- DEVELOP -->
-			<button id="add_review_button" ng-click="addReview(model_course_input)">Add Review</button>	
+			<button id="add_review_button" ng-click="addReview(model_course_input, model_selectedUniversity)">Add Review</button>	
 		</div>
 	</div>
 
@@ -61,7 +61,7 @@
 			<h1>{{course}}</h1>
 			<p class="general_rating">{{generalRating}}
 
-			<button id="add_review_button" ng-click="addReview()">Add Review</button>	
+			<button id="add_review_button" ng-click="addReview(model_course_input, model_selectedUniversity)">Add Review</button>	
 			</p>	
 			<ul>
 
@@ -420,17 +420,18 @@
 
 			<div class="form_div" id="form_div_review">
 				<form class="form_form"  ng-controller="formController">
-					
-					<div>
-						<span ng-repeat="rating in ratings">{{rating.name}}
+
+					<div class="part_review"  ng-repeat="rating in ratings">	
+						<p>{{rating.name}}</p>
        						<div star-rating rating-value="rating.current" max="rating.max"
        					 	on-rating-selected="getSelectedRating(rating)"></div>
 
-       					 	<!-- ADd comment box here -->
-        				</span>
-    				</div>
+       					 	<textarea class="review_comment" ng-hide="rating.name=='Usefulness' || rating.name=='Difficulty'" 
+       					 	ng-model="rating.comment" placeholder="Comment (optional)"></textarea>
+        			</div>
+        				
 
-				<input type="submit" ng-click="submitReview()" class="button" id="add_review_form_button"value="Add"/>
+				<input type="submit" ng-click="submitReview(ratings)" class="button" id="add_review_form_button" value="Add"/>
 				</form>
 			</div>
 		</div>	

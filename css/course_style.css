@@ -301,7 +301,7 @@ box-shadow: none;
 .courses #add_course_form_div #add_course_form_button{
 	padding: 5px 5px 5px 5px;
 	width: 90px;
-height: 40px;
+	height: 40px;
 }
 
 
@@ -309,25 +309,51 @@ height: 40px;
 	float: none;
 }
 
+.courses #add_review #form_div_review form{
+	margin-left: 50px;
+}
 
-.courses #add_review #form_div_review .rating {
+.courses #add_review #form_div_review form .part_review{
+	display: block;
+	margin-left: 0px;
+}
+
+.courses #add_review #form_div_review form .part_review p{
+	font-size: 25px;
+	margin-left: 0px;
+}
+
+.courses #add_review #form_div_review form .part_review .rating {
     color: #a9a9a9;
     margin: 0;
     padding: 0;
 }
-.courses #add_review #form_div_review ul.rating {
-    display: inline-block;
+.courses #add_review #form_div_review form .part_review ul.rating {
+	margin-top: 10px;
+    margin-left: 0px;
 }
-.courses #add_review #form_div_review .rating li {
+.courses #add_review #form_div_review form .part_review .rating li {
     list-style-type: none;
     display: inline-block;
     padding: 1px;
     text-align: center;
     font-weight: bold;
+    font-size: 30px;
     cursor: pointer;
 }
-.courses #add_review #form_div_review .rating .filled {
+.courses #add_review #form_div_review form .part_review .rating .filled {
     color: red;
+}
+
+.courses #add_review #form_div_review form .part_review .review_comment{
+	margin-top: 10px;
+	width: 300px;
+	height: 60px;
+
+	resize: none;
+
+	font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 13px;
 }
 
 
