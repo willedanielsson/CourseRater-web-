@@ -316,7 +316,7 @@
 
 			<div id="add_course_form_div" class="form_div">
 			
-				<form id="add_course_form" class="form_form" action="http://localhost:8888/CourseRaterWeb/Production/addCourseWeb.php" method="POST" accept-charset='UTF-8'>
+				<form id="add_course_form" class="form_form" method="POST" accept-charset='UTF-8'>
 
 					<div class="form_item">
 						<label for="country">
@@ -334,7 +334,7 @@
 						<label for="university">
 							<i class="fa fa-university"></i>
 						</label>
-						<select name="university" required>
+						<select name="university" ng-model="model_selectedUniversity" required>
 							<option value="" disabled selected>Select University</option>
 							<option ng-repeat="university in universities">
 								{{university}}
@@ -346,69 +346,69 @@
 						<label for="courseCode">
 							<i class="fa fa-book"></i>
 						</label>
-						<input type="text" name="courseCode" placeholder="Course code" required/>
+						<input type="text" ng-model="course_code" name="courseCode" placeholder="Course code" required/>
 					</div>
 
 
 					<div id="checkbox_div">		
 						<div class="input_div">
 							<label for="lectures_part">
-								<input type="checkbox" name="course_part_lectures" id="lectures_part">
+								<input type="checkbox" ng-model="lectures_part" name="course_part_lectures" id="lectures_part" checked>
 								<span>Lectures</span>
 							</label>
 						</div>
 	
 						<div class="input_div">
 							<label for="lessons_part">
-								<input type="checkbox" name="course_part_lessons" id="lessons_part">
+								<input type="checkbox" ng-model="lessons_part" name="course_part_lessons" id="lessons_part">
 								<span>Lessons</span>
 							</label>
 						</div>
 						
 						<div class="input_div">
 							<label for="exam_part">
-								<input type="checkbox" name="course_part_exam" id="exam_part">
+								<input type="checkbox" ng-model="exam_part" name="course_part_exam" id="exam_part">
 								<span>Exam</span>
 							</label>
 						</div>
 							
 						<div class="input_div">
 							<label for="laboratory_part">	
-								<input type="checkbox" name="course_part_laboratory" id="laboratory_part">
+								<input type="checkbox" ng-model="laboratory_part" name="course_part_laboratory" id="laboratory_part">
 								<span>Laboratory</span>
 							</label>
 						</div>
 
 						<div class="input_div">
 							<label for="seminar_part">
-								<input type="checkbox" name="course_part_seminar" id="seminar_part">
+								<input type="checkbox" ng-model="seminar_part" name="course_part_seminar" id="seminar_part">
 								<span>Seminar</span>
 							</label>
 						</div>
 	
 						<div class="input_div">
 							<label for="project_part">
-								<input type="checkbox" name="course_part_project" id="project_part">
+								<input type="checkbox" ng-model="project_part" name="course_part_project" id="project_part">
 								<span>Project</span>
 							</label>
 						</div>
 
 						<div class="input_div">
 							<label for="homeassignment_part">
-								<input type="checkbox" name="course_part_homeassignment" id="homeassignment_part">
+								<input type="checkbox" ng-model="homeassignment_part" name="course_part_homeassignment" id="homeassignment_part">
 								<span>Homeassignment</span>
 							</label>
 						</div>
 	
 						<div class="input_div">
 							<label for="case_part">
-								<input type="checkbox" name="course_part_case" id="case_part">
+								<input type="checkbox" ng-model="case_part" name="course_part_case" id="case_part">
 								<span>Case</span>
 							</label>
 						</div>
 					</div>
 					
-					<input type="submit" class="button" id="add_course_form_button"value="Add"/>
+					<input type="submit" ng-click="submitCourse(model_selectedUniversity, course_code, lectures_part, lessons_part, exam_part, laboratory_part, seminar_part, project_part, homeassignment_part, case_part)" class="button" id="add_course_form_button"value="Add"/>
 				</form>
 
 			</div>
@@ -419,7 +419,7 @@
 			<h1>{{course}}</h1>
 
 			<div class="form_div" id="form_div_review">
-				<form class="form_form"  ng-controller="formController">
+				<form class="form_form" ng-controller="formController">
 
 					<div class="part_review"  ng-repeat="rating in ratings">	
 						<p>{{rating.name}}</p>

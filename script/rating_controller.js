@@ -94,9 +94,6 @@ courseApp.controller('formController', function($scope, $http) {
 
     $scope.submitReview = function (data){
         
-        console.log("Usefulness :"+data[0].current);
-        console.log("Exam Comment :"+data[2].comment);
-
         var usefulnessRating = data[0].current;
         var difficultyRating = data[1].current;
      

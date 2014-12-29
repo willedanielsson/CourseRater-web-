@@ -46,6 +46,76 @@ courseApp.controller('courseController', function($scope, $http){
 			$scope.page='addCourse';
 	}
 
+	$scope.submitCourse = function(university, course, lectures, lessons, exam, lab, seminar, project, home, casep){
+		if(university!==undefined || course!==undefined){
+			if(lectures==true){
+				lectures=1;
+			}else{
+				lectures=0;
+			}
+
+			if(lessons==true){
+				lessons=1;
+			}else{
+				lessons=0;
+			}
+
+			if(exam==true){
+				exam=1;
+			}else{
+				exam=0;
+			}
+
+			if(lab==true){	
+				lab=1;
+			}else{
+				lab=0;
+			}
+
+			if(seminar==true){
+				seminar=1;
+			}else{
+				seminar=0;
+			}
+
+			if(project==true){
+				project=1;
+			}else{
+				project=0;
+			}
+
+			if(home==true){
+				home=1;
+			}else{
+				home=0;
+			}
+
+			if(casep==true){
+				casep=1;
+			}else{
+				casep=0;
+			}
+
+			var data = {
+				'university': university,
+				'courseCode': course,
+				'course_part_lectures': lectures,
+				'course_part_lessons': lessons,
+				'course_part_exam': exam,
+				'course_part_laboratory': lab,
+				'course_part_seminar': seminar,
+				'course_part_project': project,
+				'course_part_homeassignment': home,
+				'course_part_case': casep
+			};
+
+			console.log(data);
+
+			$http.post("http://localhost:8888/CourseRaterWeb/Production/addCourseWeb.php", data).success(function(response){	
+       	 	});
+		}
+	}
+
 	$scope.addReview = function(course, university){
 		$scope.page="addReview"
 		//$scope.course = course;
