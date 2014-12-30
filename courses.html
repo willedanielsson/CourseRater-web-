@@ -36,17 +36,17 @@
 				</select>
 
 			</div>
-
-				<button id="view_course_button" ng-click="getCourseInformation(model_course_input)" ng-style="styleViewCourseButton" ng-model="view_or_add">View Ratings</button>	
-				
+				<div id="view_course_button">
+					<a class="button" ng-click="getCourseInformation(model_course_input)" ng-style="styleViewCourseButton" ng-model="view_or_add">View Ratings</a>
+				</div>
 		</div>
 
 		<div class="course_div" id="add_course_holder">
 			<p>Cant find a course?</p>
 
-			<button id="add_course_button" ng-click="addCourse()" ng-model="view_or_add">Add Course</button>
-			<!-- DEVELOP -->
-			<button id="add_review_button" ng-click="addReview(model_course_input, model_selectedUniversity)">Add Review</button>	
+			<div id="add_course_button">
+					<a class="button" ng-click="addCourse()" ng-model="view_or_add">Add Course</a>
+			</div>
 		</div>
 	</div>
 
@@ -61,7 +61,12 @@
 			<h1>{{course}}</h1>
 			<p class="general_rating">{{generalRating}}
 
-			<button id="add_review_button" ng-click="addReview(model_course_input, model_selectedUniversity)">Add Review</button>	
+		
+
+			<div id="add_review_button">
+				<a class="button" ng-click="addReview(model_course_input, model_selectedUniversity)">Add Review</a>
+			</div>
+
 			</p>	
 			<ul>
 
@@ -311,8 +316,7 @@
 
 <!-- ----------------------------ADD COURse ------------------------------>		
 
-		<div id="add_course" ng-switch-when="addCourse">
-			<p id="add_course_infor">{{country}} : {{university}}</p>
+		<div id="add_course" ng-switch-when="addCourse" ng-controller="addCourseController">
 
 			<div id="add_course_form_div" class="form_div">
 			
@@ -419,11 +423,11 @@
 			<br style="clear:both;"/>
 		</div>
 <!----------------------- ADD REVIEW  -------------------------------->
-		<div id="add_review" ng-switch-when="addReview">
+		<div id="add_review" ng-switch-when="addReview" ng-controller="rateCourseController">
 			<h1>{{course}}</h1>
 
 			<div class="form_div" id="form_div_review">
-				<form class="form_form" ng-controller="formController">
+				<form class="form_form">
 
 					<div class="part_review"  ng-repeat="rating in ratings">	
 						<p>{{rating.name}}</p>

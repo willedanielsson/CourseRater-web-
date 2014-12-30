@@ -1,6 +1,6 @@
 courseApp.controller('courseController', function($scope, $http){
 
-	$http.get("http://www.ashiya.se/Develop/CourseRaterWeb/Production/getCountries.php").success(function(response){
+	$http.get("backend/getCountries.php").success(function(response){
 		$scope.countries = response;
 	});
 
@@ -9,7 +9,7 @@ courseApp.controller('courseController', function($scope, $http){
 
 
   	$scope.getUniversities = function(country){
-  		$http.get("http://www.ashiya.se/Develop/CourseRaterWeb/Production/getUniversitiesForCountry.php?country="+country).success(function(response){
+  		$http.get("backend/getUniversitiesForCountry.php?country="+country).success(function(response){
   			$scope.universities = response;
   		});
 
@@ -21,7 +21,7 @@ courseApp.controller('courseController', function($scope, $http){
 	}
 
 	$scope.getCourses = function(university){
-		$http.get("http://www.ashiya.se/Develop/CourseRaterWeb/Production/getCoursesForUniversity.php?chosenUniversity="+university).success(function(response){
+		$http.get("backend/getCoursesForUniversity.php?chosenUniversity="+university).success(function(response){
 			$scope.courses = response;
 		})
 		// When a university has been chosen, show that the course-list is unlocked
@@ -41,117 +41,23 @@ courseApp.controller('courseController', function($scope, $http){
 		button.removeAttr('disabled');
 	}
 
-
-	$scope.addCourse = function(){
-			$scope.page='addCourse';
-			$scope.message="";
-	}
-
-	$scope.submitCourse = function(university, course, lectures, lessons, exam, lab, seminar, project, home, casep){
-		if(university!==undefined || course!==undefined){
-			if(lectures==true){
-				lectures=1;
-			}else{
-				lectures=0;
-			}
-
-			if(lessons==true){
-				lessons=1;
-			}else{
-				lessons=0;
-			}
-
-			if(exam==true){
-				exam=1;
-			}else{
-				exam=0;
-			}
-
-			if(lab==true){	
-				lab=1;
-			}else{
-				lab=0;
-			}
-
-			if(seminar==true){
-				seminar=1;
-			}else{
-				seminar=0;
-			}
-
-			if(project==true){
-				project=1;
-			}else{
-				project=0;
-			}
-
-			if(home==true){
-				home=1;
-			}else{
-				home=0;
-			}
-
-			if(casep==true){
-				casep=1;
-			}else{
-				casep=0;
-			}
-
-			var data = {
-				'university': university,
-				'courseCode': course,
-				'course_part_lectures': lectures,
-				'course_part_lessons': lessons,
-				'course_part_exam': exam,
-				'course_part_laboratory': lab,
-				'course_part_seminar': seminar,
-				'course_part_project': project,
-				'course_part_homeassignment': home,
-				'course_part_case': casep
-			};
-
-
-			$http.post("backend/addCourseWeb.php", data).success(function(response){	
-				console.log(response);
-				if(response=="courseAlreadyExist"){
-					$scope.message="That course already exists!";
-
-				}else if(response=="universityDoesNotExist"){
-					$scope.message="Strange. That university does not seem to exist!";
-
-				}else if(response=="connectionError"){
-					$scope.message="Could not connect to the database!";
-
-				}else if(response=="courseIsEmpty"){
-					$scope.message="What is the code for the course?";
-
-				}else if(response=="universityIsEmpty"){
-					$scope.message="You have to choose a university!";
-
-				}else if(response=="courseAdded"){
-				$scope.message="Course added!";	
-				}
-       	 	});
-		}
-	}
-
 	$scope.addReview = function(course, university){
 		$scope.page="addReview"
-		//$scope.course = course;
-		//$scope.university = university;
-		$scope.course="TANA21";
-		$scope.university = "Linköpings tekniska högskola";
+		$scope.course = course;
+		$scope.university = university;
+		//$scope.course="TANA21";
+		//$scope.university = "Linköpings tekniska högskola";
 		$scope.message_review="";
+	}    
 
-	}
 
-	$scope.getCourseInformation = function(course, value){
+	$scope.getCourseInformation = function(course){
 
 		//When pressed 'View Course', we display the ratings by default
 		$scope.page='view';
 
 		$scope.course = course;
-		$http.get("http://localhost:8888/Test/getCourseInformation.php?chosenCourse="+course).success(function(response){
+		$http.get("backend/getCourseInformation.php?course="+course).success(function(response){
 
 			//Give the ratings their needed data
 			$scope.courseInformation = response;
@@ -294,8 +200,6 @@ courseApp.controller('courseController', function($scope, $http){
 
 		});
 	}
-
-	
 
 });
 

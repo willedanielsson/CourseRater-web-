@@ -11,7 +11,7 @@
 }
 
 .courses #add_course_holder{
-	margin-left: 50px;
+
 }
 .courses p{
 		margin-left: 50px;
@@ -63,7 +63,7 @@
 .courses .input_holder select option{
 }
 
-.courses button{
+.courses .button{
 	font-size: 16px;
   	font-weight: 600;
   	color: #F0FFFF;
@@ -84,7 +84,7 @@
   	position: relative;
 }
 
-.courses button:hover{
+.courses .button:hover{
 	top: 3px;
 	background-color: #57EB47;
 	-webkit-box-shadow: none; 
@@ -93,8 +93,8 @@
 }
 
 .courses #input #view_course_button{
-	margin-left: 50px;
-	margin-top: 20px;
+	margin-left: 5px;
+	margin-top: 30px;
 }
 
 .courses #add_course_holder p{
@@ -102,9 +102,9 @@
 
 }
 
-
 .courses #add_course_holder #add_course_button{
-	margin-left: 50px;
+	margin-left: 5px;
+	margin-top: 20px;
 
 }
 
@@ -127,18 +127,24 @@
 .courses #course_information #course_rating .general_rating{
 	font-size: 40px;
 	font-weight: bold;
-	padding-left: 447px;
+	padding-left: 467px;
 	display: table-cell;
 	color: #78F36B;
 }
 
-.courses #course_information #course_rating#add_review_button{
+.courses #course_information #course_rating #add_review_button{
 	display: table-cell;
-	top: -9px;
 	margin-left: 60px;
+	position: relative;
+	top: -8px;
 }
 .courses #course_information #course_rating #add_review_button:hover{
-	top: -6px;
+	top: -5px;
+	cursor: pointer;
+}
+
+.courses #course_information #course_rating #add_review_button .button{
+	
 }
 
 .courses #course_information #course_rating ul{
@@ -185,7 +191,7 @@ box-shadow: none;
 }
 
 .courses #course_information #course_rating li .part{
-	width: 250px;
+	width: 300px;
 	display: table-cell;
 	padding-bottom: 15px;
 	padding-left: 10px;
@@ -216,8 +222,7 @@ box-shadow: none;
 
 .courses #course_information #course_rating li .part_rating p{
 	margin-right: 10px;
-	margin-bottom: 0px;
-	margin-top: 0px;
+	margin-left: 30px;
 }
 
 .courses #course_information #course_rating .comments_list{
