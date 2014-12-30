@@ -312,7 +312,7 @@
 <!-- ----------------------------ADD COURse ------------------------------>		
 
 		<div id="add_course" ng-switch-when="addCourse">
-			<p>{{country}} : {{university}}</p>
+			<p id="add_course_infor">{{country}} : {{university}}</p>
 
 			<div id="add_course_form_div" class="form_div">
 			
@@ -411,6 +411,10 @@
 					<input type="submit" ng-click="submitCourse(model_selectedUniversity, course_code, lectures_part, lessons_part, exam_part, laboratory_part, seminar_part, project_part, homeassignment_part, case_part)" class="button" id="add_course_form_button"value="Add"/>
 				</form>
 
+				<div class="error_message" id="add_course_message">
+					<p ng-bind="message"></p>
+				</div>	
+
 			</div>
 			<br style="clear:both;"/>
 		</div>
@@ -433,6 +437,11 @@
 
 				<input type="submit" ng-click="submitReview(ratings)" class="button" id="add_review_form_button" value="Add"/>
 				</form>
+				
+				<div class="error_message" id="add_review_message">
+					<p ng-bind="message_review"></p>
+				</div>
+
 			</div>
 		</div>	
 	</div>

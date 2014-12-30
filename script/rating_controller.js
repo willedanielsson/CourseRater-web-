@@ -3,6 +3,7 @@ courseApp.controller('formController', function($scope, $http) {
     // Get values of chosen course to check which parts that is in the course
     var university = $scope.university;
     var course = $scope.course;
+    
 
     $http.get("http://www.ashiya.se/Develop/CourseRaterWeb/Production/getReviewParts.php?university="+university+"&course="+course).success(function(response){
         $scope.reviewParts = response;
@@ -88,8 +89,6 @@ courseApp.controller('formController', function($scope, $http) {
         }
 
     });
-
-   
 
 
     $scope.submitReview = function (data){
@@ -177,7 +176,11 @@ courseApp.controller('formController', function($scope, $http) {
         };
         console.log(inputData);
         $http.post("http://localhost:8888/CourseRaterWeb/Production/addReviewWeb.php", inputData).success(function(response){
-           console.log(response);
+           if(response=="addCourseFailed"){
+                $scope.message="Something went wrong when adding the course!";
+           }else if(response=="couldntFindCourse"){
+                $scope.message="Couldn't find the course to rate!";
+           }
         });
 
 
@@ -240,3 +243,6 @@ courseApp.directive('starRating', function () {
         }
     }
 });
+
+
+

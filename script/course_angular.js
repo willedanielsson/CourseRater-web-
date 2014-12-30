@@ -5,7 +5,7 @@ courseApp.controller('courseController', function($scope, $http){
 	});
 
 	$scope.page = 'def';
-	$scope.parts=['Lectures', 'Lessons', 'Exam', 'Laboratory', 'Seminar', 'Project', 'Case'];
+	//$scope.parts=['Lectures', 'Lessons', 'Exam', 'Laboratory', 'Seminar', 'Project', 'Case'];
 
 
   	$scope.getUniversities = function(country){
@@ -44,6 +44,7 @@ courseApp.controller('courseController', function($scope, $http){
 
 	$scope.addCourse = function(){
 			$scope.page='addCourse';
+			$scope.message="";
 	}
 
 	$scope.submitCourse = function(university, course, lectures, lessons, exam, lab, seminar, project, home, casep){
@@ -109,9 +110,27 @@ courseApp.controller('courseController', function($scope, $http){
 				'course_part_case': casep
 			};
 
-			console.log(data);
 
-			$http.post("http://localhost:8888/CourseRaterWeb/Production/addCourseWeb.php", data).success(function(response){	
+			$http.post("backend/addCourseWeb.php", data).success(function(response){	
+				console.log(response);
+				if(response=="courseAlreadyExist"){
+					$scope.message="That course already exists!";
+
+				}else if(response=="universityDoesNotExist"){
+					$scope.message="Strange. That university does not seem to exist!";
+
+				}else if(response=="connectionError"){
+					$scope.message="Could not connect to the database!";
+
+				}else if(response=="courseIsEmpty"){
+					$scope.message="What is the code for the course?";
+
+				}else if(response=="universityIsEmpty"){
+					$scope.message="You have to choose a university!";
+
+				}else if(response=="courseAdded"){
+				$scope.message="Course added!";	
+				}
        	 	});
 		}
 	}
@@ -122,6 +141,7 @@ courseApp.controller('courseController', function($scope, $http){
 		//$scope.university = university;
 		$scope.course="TANA21";
 		$scope.university = "Linköpings tekniska högskola";
+		$scope.message_review="";
 
 	}
 

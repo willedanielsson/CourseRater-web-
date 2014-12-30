@@ -143,6 +143,14 @@
 
 }
 
+#registration #register_message{
+	margin-left: 25px;
+	margin-bottom: 10px;
+}
+#registration #register_message p{
+	font-size: 15px;
+}
+
 
 
 

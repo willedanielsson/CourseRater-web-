@@ -259,7 +259,7 @@ box-shadow: none;
 
 }
 
-.courses #add_course p{
+.courses #add_course #add_course_info{
 	font-size: 20px;
 	margin-left: 0;
 }
@@ -302,6 +302,18 @@ box-shadow: none;
 	padding: 5px 5px 5px 5px;
 	width: 90px;
 	height: 40px;
+	margin-left: 15px;
+}
+
+.courses .error_message{
+	margin-left: 15px;
+	margin-bottom: 10px;
+
+}
+
+.courses .error_message p,
+.courses .error_message #add_course_message p{
+	font-size: 15px;
 }
 
 
@@ -354,6 +366,10 @@ box-shadow: none;
 
 	font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 13px;
+}
+
+.courses #add_review .form_div #add_review_message{
+	margin-left: 0px;
 }
 
 

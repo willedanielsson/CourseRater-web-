@@ -28,6 +28,10 @@ courseApp.config(function($routeProvider){
 			controller : 'messageController'
 		})
 
+		.when('/confirmation', {
+			templateUrl : 'backend/confirmation.php'
+		})
+
 		.when('/contact', {
 			templateUrl : 'contact.html',
 			controller : 'contactController'
