@@ -7,11 +7,11 @@
 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-animate.js"></script>
-<script type="text/javascript" src="script/script.js"></script>
+<script type="text/javascript" src="script/nav_controller.js"></script>
 <script type="text/javascript" src="script/course_controller.js"></script>
 <script type="text/javascript" src="script/add_course_controller.js"></script>
 <script type="text/javascript" src="script/rate_course_controller.js"></script>
-<script type="text/javascript" src="script/home_angular.js"></script>
+<script type="text/javascript" src="script/home_controller.js"></script>
 <link rel="stylesheet" href="css/header_style.css">
 <link rel="stylesheet" href="css/home.css">
 <link rel="stylesheet" href="css/course_style.css">
@@ -20,12 +20,12 @@
 <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 
-<body ng-controller="mainController">
+<body ng-controller="homeController">
 
 <div class="content">
 
 	<header>
-		<nav id="navigation" ng-controller="NavController">
+		<nav id="navigation" ng-controller="navController">
 
 			<ul id="navigation_menu">
 				<li ng-class="{ active: isActive('/') }">
@@ -60,19 +60,22 @@
 
 			<div id="login_box">
 
-				<form id="login_form" action="login.php" method="get" accept-charset="UTF-8">
+				<form id="login_form" accept-charset="UTF-8">
 					<div id="login_inputs">
-						<input type="email" name="email" maxlength="50" placeholder="Email" />
-						<input type="password" name="password" id="password" maxlength="50" placeholder="Password" />
+						<input type="email" ng-model="email" name="email" maxlength="50" placeholder="Email"/>
+						<input type="password" name="password" ng-model="password" id="password" maxlength="50" placeholder="Password" />
 					</div>
 					<div id="login_div">
-						<input id="login_button" class="login_link"type="submit" name="submit" value="Login" />
+						<input class="button" id="login_button" ng-click="login(email, password)"type="submit" name="submit" value="Login" />
 						<a class="login_link" href="#">Register</a>
 					</div>
 				</form>
-
-			</div>
+				<div id="login_mess">
+					<p ng-bind="login_message"></p>
+				</div>
+			</div>	
 		</nav>
+
 	</header>
 
 	<div id="main">

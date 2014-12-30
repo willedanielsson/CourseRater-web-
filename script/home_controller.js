@@ -1,4 +1,4 @@
- courseApp.controller('mainController', function($scope, $http){
+ courseApp.controller('homeController', function($scope, $http){
 
  	$scope.message_register="";
 

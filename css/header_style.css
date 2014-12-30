@@ -69,8 +69,10 @@ body p, body h1, body h2, body a, body span, body label{
 	font-size: 25px;
 	color: #eeeeee;
 }
-
-#navigation #login_form{
+#navigation #login_box{
+	position: relative;
+}
+#navigation #login_box #login_form{
 	display: inline-block;
 	margin-top: 10px;
 	float: right;
@@ -138,5 +140,24 @@ body p, body h1, body h2, body a, body span, body label{
 	display: block;
 	color: white;
 	text-decoration: none;
-
 }
+
+#navigation #login_box #login_mess{
+	width: 215px;
+	height: 40px;
+
+	position: absolute;
+	right: 90px;
+	top: 74px;
+}
+
+#navigation #login_box #login_mess p {
+	color: red;
+}
+
+
+
+
+
+
+

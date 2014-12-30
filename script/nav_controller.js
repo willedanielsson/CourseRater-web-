@@ -1,10 +1,44 @@
 //Module
 var courseApp = angular.module('courseApp', ['ngRoute']);
 
-courseApp.controller('NavController', function($scope, $location){
+courseApp.controller('navController', function($scope, $location, $http){
+
+	$scope.login_message="";
+
 	$scope.isActive = function(route){
 		return route === $location.path();
 	}
+
+	$scope.login = function(email, password){
+		//if(email!==undefined || password!==undefined){
+			var data = {
+				'email': email,
+				'password': password
+			}
+
+			$http.post("backend/login.php", data).success(function(response){
+				if(response=="wrongVal"){
+					$scope.login_message="Wrong Username or Password";
+				}else if(response=="wrongVal2"){
+					$scope.login_message="Wrong pass";
+				}
+
+				else if(response=="connectionFailed"){
+					$scope.login_message="Connection failure";
+				}else if(response=="emptyPassword"){
+					$scope.login_message="Please enter a password";
+				}else if(response=="emptyEmail"){
+					$scope.login_message="Please enter an Email";
+				}
+
+				console.log(response);
+			});
+		/*}else{
+			//Empty values, do nuttin
+		}
+		*/
+	}
+
 });
 
 // Configure the routes
@@ -14,7 +48,7 @@ courseApp.config(function($routeProvider){
 		//route for Home page
 		.when('/', {
 			templateUrl : 'home.html',
-			controller : 'mainController'
+			controller : 'homeController'
 		})
 
 		//route for courses
