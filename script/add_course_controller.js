@@ -1,11 +1,5 @@
 courseApp.controller('addCourseController', function($scope, $http){
 
-	$scope.addCourse = function(){
-			$scope.page='addCourse';
-			$scope.message="";
-	}
-
-
 	$scope.submitCourse = function(university, course, lectures, lessons, exam, lab, seminar, project, home, casep){
 		if(university!==undefined || course!==undefined){
 			if(lectures==true){

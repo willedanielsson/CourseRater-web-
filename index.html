@@ -60,16 +60,21 @@
 
 			<div id="login_box">
 
-				<form id="login_form" accept-charset="UTF-8">
+				<form id="login_form" accept-charset="UTF-8" ng-style="login_form">
 					<div id="login_inputs">
 						<input type="email" ng-model="email" name="email" maxlength="50" placeholder="Email"/>
 						<input type="password" name="password" ng-model="password" id="password" maxlength="50" placeholder="Password" />
 					</div>
 					<div id="login_div">
 						<input class="button" id="login_button" ng-click="login(email, password)"type="submit" name="submit" value="Login" />
-						<a class="login_link" href="#">Register</a>
+						<a class="log_link" href="#">Register</a>
 					</div>
 				</form>
+
+				<div id="logged_in_box" ng-style="logged_in_box">
+					<p>{{userEmail}}</p>
+					<a id="logout_button" href="#">Logout</a>
+				</div>	
 				<div id="login_mess">
 					<p ng-bind="login_message"></p>
 				</div>

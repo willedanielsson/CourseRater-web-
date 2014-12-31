@@ -136,10 +136,54 @@ body p, body h1, body h2, body a, body span, body label{
 }
 
 
-#navigation #login_box .login_link{
+#navigation #login_box .log_link{
 	display: block;
 	color: white;
 	text-decoration: none;
+}
+
+#navigation #login_box #logged_in_box{
+	margin-top: 10px;
+	margin-right: 10px;
+	float: right;
+	display: none;
+}
+
+#navigation #login_box #logged_in_box p{
+	margin-bottom: 10px;
+	color: white;
+}
+
+#navigation #login_box #logged_in_box #logout_button{
+
+	float:right;
+	font-size: 16px;
+  	font-weight: 600;
+  	color: #F0FFFF;
+  	padding: 5px 10px 5px 10px;
+  	margin-bottom: 12px;
+
+	text-decoration: none;
+
+	border: none;
+  	-webkit-border-radius: 5px; 
+  	-moz-border-radius: 5px; 
+  	border-radius: 5px; 
+  	background-color: #78F36B; 
+  	-webkit-box-shadow: 0 3px rgba(159, 249, 150,.75); 
+  	-moz-box-shadow: 0 3px rgba(159, 249, 150,.75); 
+  	box-shadow: 0 3px rgba(159, 249, 150,.75);
+  	transition: all 0.1s linear 0s; 
+
+  	position: relative;
+}
+#navigation #login_box #logged_in_box #logout_button:hover{
+		top: 3px;
+	background-color: #57EB47;
+	-webkit-box-shadow: none; 
+  	-moz-box-shadow: none; 
+  	box-shadow: none;
+  	cursor: pointer;
 }
 
 #navigation #login_box #login_mess{

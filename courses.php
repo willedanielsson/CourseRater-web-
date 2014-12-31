@@ -1,5 +1,9 @@
 <div class="courses">
+<?php
+	session_start();
 
+	print_r($_SESSION['userEmail']);
+?>
 	<div id="course_selection">
 
 		<div class="course_div" id="input">

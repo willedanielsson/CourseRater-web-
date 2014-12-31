@@ -48,7 +48,12 @@ courseApp.controller('courseController', function($scope, $http){
 		//$scope.course="TANA21";
 		//$scope.university = "Linköpings tekniska högskola";
 		$scope.message_review="";
-	}    
+	} 
+	
+	$scope.addCourse = function(){
+			$scope.page='addCourse';
+			$scope.message="";
+	}   
 
 
 	$scope.getCourseInformation = function(course){

@@ -10,33 +10,31 @@ courseApp.controller('navController', function($scope, $location, $http){
 	}
 
 	$scope.login = function(email, password){
-		//if(email!==undefined || password!==undefined){
+		if(email!==undefined || password!==undefined){
 			var data = {
 				'email': email,
 				'password': password
 			}
 
 			$http.post("backend/login.php", data).success(function(response){
-				if(response=="wrongVal"){
-					$scope.login_message="Wrong Username or Password";
-				}else if(response=="wrongVal2"){
-					$scope.login_message="Wrong pass";
-				}
+				if(response=="failed"){
 
-				else if(response=="connectionFailed"){
-					$scope.login_message="Connection failure";
-				}else if(response=="emptyPassword"){
-					$scope.login_message="Please enter a password";
-				}else if(response=="emptyEmail"){
-					$scope.login_message="Please enter an Email";
-				}
+				}else{
+					//Login success
+					var user = response;
 
-				console.log(response);
+					$scope.login_form = {
+						'display': "none"
+					};
+
+					$scope.logged_in_box = {
+						'display': "inline-block"
+					};
+
+					$scope.userEmail = user;
+				}
 			});
-		/*}else{
-			//Empty values, do nuttin
-		}
-		*/
+		}	
 	}
 
 });
@@ -53,7 +51,7 @@ courseApp.config(function($routeProvider){
 
 		//route for courses
 		.when('/courses', {
-			templateUrl : 'courses.html',
+			templateUrl : 'courses.php',
 			controller : 'courseController'
 		})
 
