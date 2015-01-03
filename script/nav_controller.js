@@ -1,8 +1,16 @@
 //Module
 var courseApp = angular.module('courseApp', ['ngRoute']);
 
-courseApp.controller('navController', function($scope, $location, $http){
+courseApp.value('user', {
+	email:'huehue',
+	country:'',
+	university:''
+});
 
+
+
+courseApp.controller('navController', function($scope, $location, $http, user){
+	
 	$scope.login_message="";
 
 	$scope.isActive = function(route){
@@ -10,6 +18,7 @@ courseApp.controller('navController', function($scope, $location, $http){
 	}
 
 	$scope.login = function(email, password){
+
 		if(email!==undefined || password!==undefined){
 			var data = {
 				'email': email,
@@ -17,11 +26,10 @@ courseApp.controller('navController', function($scope, $location, $http){
 			}
 
 			$http.post("backend/login.php", data).success(function(response){
-				if(response=="failed"){
+
+				if(response==="failed"){
 
 				}else{
-					//Login success
-					var user = response;
 
 					$scope.login_form = {
 						'display': "none"
@@ -31,10 +39,32 @@ courseApp.controller('navController', function($scope, $location, $http){
 						'display': "inline-block"
 					};
 
-					$scope.userEmail = user;
-				}
+					user.email=response;
+
+					$scope.userEmail = response;
+
+				}	
+
+				
+
 			});
 		}	
+	}
+
+	$scope.logout = function(){
+
+		$scope.login_form = {
+			'display': "inline-block"
+		};
+
+		$scope.logged_in_box = {
+			'display': "none"
+		};
+		user.email="";
+		user.country="";
+		user.university="";
+
+		$scope.userEmail="";
 	}
 
 });
@@ -51,7 +81,7 @@ courseApp.config(function($routeProvider){
 
 		//route for courses
 		.when('/courses', {
-			templateUrl : 'courses.php',
+			templateUrl : 'courses.html',
 			controller : 'courseController'
 		})
 

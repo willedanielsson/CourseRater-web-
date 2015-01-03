@@ -5,7 +5,6 @@ courseApp.controller('courseController', function($scope, $http){
 	});
 
 	$scope.page = 'def';
-	//$scope.parts=['Lectures', 'Lessons', 'Exam', 'Laboratory', 'Seminar', 'Project', 'Case'];
 
 
   	$scope.getUniversities = function(country){
