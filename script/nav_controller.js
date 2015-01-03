@@ -1,14 +1,3 @@
-//Module
-var courseApp = angular.module('courseApp', ['ngRoute']);
-
-courseApp.value('user', {
-	email:'huehue',
-	country:'',
-	university:''
-});
-
-
-
 courseApp.controller('navController', function($scope, $location, $http, user){
 	
 	$scope.login_message="";

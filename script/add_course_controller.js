@@ -1,4 +1,4 @@
-courseApp.controller('addCourseController', function($scope, $http){
+courseApp.controller('addCourseController', function($scope, $http, user){
 
 	$scope.submitCourse = function(university, course, lectures, lessons, exam, lab, seminar, project, home, casep){
 		if(university!==undefined || course!==undefined){
@@ -60,7 +60,8 @@ courseApp.controller('addCourseController', function($scope, $http){
 				'course_part_seminar': seminar,
 				'course_part_project': project,
 				'course_part_homeassignment': home,
-				'course_part_case': casep
+				'course_part_case': casep,
+				'userEmail': user.email
 			};
 
 
@@ -82,7 +83,7 @@ courseApp.controller('addCourseController', function($scope, $http){
 					$scope.message="You have to choose a university!";
 
 				}else if(response=="courseAdded"){
-				$scope.message="Course added!";	
+					$scope.showCourseAdded();
 				}
        	 	});
 		}

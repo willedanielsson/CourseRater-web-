@@ -1,10 +1,18 @@
-courseApp.controller('courseController', function($scope, $http){
+courseApp.controller('courseController', function($scope, $http, user){
 
 	$http.get("backend/getCountries.php").success(function(response){
 		$scope.countries = response;
 	});
 
 	$scope.page = 'def';
+
+	$scope.showRatingAdded = function(){
+		$scope.page = 'rating_added';
+	}
+
+	$scope.showCourseAdded = function(){
+		$scope.page = 'course_added';
+	}
 
 
   	$scope.getUniversities = function(country){
@@ -41,17 +49,26 @@ courseApp.controller('courseController', function($scope, $http){
 	}
 
 	$scope.addReview = function(course, university){
-		$scope.page="addReview"
-		$scope.course = course;
-		$scope.university = university;
-		//$scope.course="TANA21";
-		//$scope.university = "Linköpings tekniska högskola";
-		$scope.message_review="";
+		if(user.email!=""){
+			$scope.page="addReview"
+			$scope.course = course;
+			$scope.university = university;
+		}else{
+			$scope.add_review_message = {
+				'display': "inline-block"
+			};
+		}	
 	} 
 	
 	$scope.addCourse = function(){
+		if(user.email!=""){	
 			$scope.page='addCourse';
 			$scope.message="";
+		}else{
+			$scope.add_course_warning_text = {
+				'display': "block"
+			};
+		}
 	}   
 
 

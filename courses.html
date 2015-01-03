@@ -46,6 +46,10 @@
 
 			<div id="add_course_button">
 					<a class="button" ng-click="addCourse()" ng-model="view_or_add">Add Course</a>
+					<div id="add_course_warning_text" ng-style="add_course_warning_text">
+						<p class="warning_text" id="first_warning_text">You need to be logged in to add a course. </p>
+						<p class="warning_text" id="second_warning_text">It is easy and free to become a member!</p>
+					</div>	
 			</div>
 		</div>
 	</div>
@@ -53,19 +57,32 @@
 	<div>
 	<div id="course_information" ng-switch on="page">
 		
-		<div class="switch" ng-switch-when="def">
+		<div ng-switch-when="def">
 			<!-- Empty Div is default-->
 		</div>
 
-		<div class="switch" id="course_rating" ng-switch-when="view">
+		<div ng-switch-when="course_added" id="course_added">
+			<p>Course was added!</p>
+		</div>
+
+		<div ng-switch-when="rating_added" id="rating_added">
+			<p>Rating was added!</p>
+		</div>
+
+		<div id="course_rating" ng-switch-when="view">
 			<h1>{{course}}</h1>
-			<p class="general_rating">{{generalRating}}
+			<p class="general_rating">{{generalRating | number:1}}
 
 		
 
 			<div id="add_review_button">
 				<a class="button" ng-click="addReview(model_course_input, model_selectedUniversity)">Add Review</a>
+
 			</div>
+			<div class="error_message" ng-style="add_review_message">
+					<p class="warning_text" id="first_warning_text">You need to be logged in to review. </p>
+					<p class="warning_text" id="second_warning_text">It is easy and free to become a member!</p>
+				</div>
 
 			</p>	
 			<ul>
@@ -442,9 +459,6 @@
 				<input type="submit" ng-click="submitReview(ratings)" class="button" id="add_review_form_button" value="Add"/>
 				</form>
 				
-				<div class="error_message" id="add_review_message">
-					<p ng-bind="message_review"></p>
-				</div>
 
 			</div>
 		</div>	

@@ -1,4 +1,4 @@
-courseApp.controller('rateCourseController', function($scope, $http){
+courseApp.controller('rateCourseController', function($scope, $http, user){
 
 	// Get values of chosen course to check which parts that is in the course
     var university = $scope.university;
@@ -171,17 +171,20 @@ courseApp.controller('rateCourseController', function($scope, $http){
             'homeassignmentRating': homeassignmentRating,
             'homeassignmentComment': homeassignmentComment,
             'caseRating': caseRating,
-            'caseComment': caseComment
+            'caseComment': caseComment,
+            'userEmail': user.email
         };
-        console.log(inputData);
+       
         $http.post("backend/addReviewWeb.php", inputData).success(function(response){
            if(response=="addCourseFailed"){
                 $scope.message="Something went wrong when adding the course!";
            }else if(response=="couldntFindCourse"){
                 $scope.message="Couldn't find the course to rate!";
+           }else{
+                $scope.showRatingAdded();
+
            }
         });
-
 
     }
 

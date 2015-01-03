@@ -108,20 +108,34 @@
 
 }
 
+.courses #add_course_holder #add_course_button #add_course_warning_text{
+	display: none;
+}
+
+.courses #add_course_holder #add_course_button .warning_text{
+	padding-top: 10px;
+	font-size: 15px;
+	color: #D8000C;
+}
+.courses #add_course_holder #add_course_button #second_warning_text{
+	padding-top: 0px;
+}
+
+
 .courses #course_information{
 	margin: 50px 50px 50px 50px;
 }
-
-.courses #course_information .switch{
-
-}
-
 
 .courses #course_information h1{
 	font-size: 40px;
 	margin-top: 10px;
 	margin-left: 50px;
 	display: table-cell;
+}
+
+.courses #course_information #course_added p,
+.courses #course_information #rating_added p{
+	margin-left: 0px;
 }
 
 .courses #course_information #course_rating .general_rating{
@@ -131,20 +145,34 @@
 	display: table-cell;
 	color: #78F36B;
 }
-
 .courses #course_information #course_rating #add_review_button{
-	display: table-cell;
+		display: table-cell;
 	margin-left: 60px;
+}
+
+.courses #course_information #course_rating #add_review_button .button{
+
 	position: relative;
 	top: -8px;
 }
-.courses #course_information #course_rating #add_review_button:hover{
+.courses #course_information #course_rating #add_review_button .button:hover{
 	top: -5px;
 	cursor: pointer;
 }
 
-.courses #course_information #course_rating #add_review_button .button{
-	
+.courses #course_information #course_rating .error_message{
+	display: none;
+	float: right;
+	width: 155px;
+	padding-top: 0px;
+	margin: 0px;
+
+	font-size: 15px;
+	color: #D8000C;
+}
+
+.courses #course_information #course_rating .error_message p{
+	margin-left: 0;
 }
 
 .courses #course_information #course_rating ul{
