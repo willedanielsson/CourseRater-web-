@@ -187,6 +187,7 @@ body p, body h1, body h2, body a, body span, body label{
 }
 
 #navigation #login_box #login_mess{
+	display: none;
 	width: 215px;
 	height: 40px;
 
@@ -197,6 +198,10 @@ body p, body h1, body h2, body a, body span, body label{
 
 #navigation #login_box #login_mess p {
 	color: red;
+}
+#navigation #login_box #login_mess a{
+	text-decoration: none;
+	color: #000;
 }
 
 

@@ -1,6 +1,4 @@
 courseApp.controller('navController', function($scope, $location, $http, user){
-	
-	$scope.login_message="";
 
 	$scope.isActive = function(route){
 		return route === $location.path();
@@ -16,7 +14,10 @@ courseApp.controller('navController', function($scope, $location, $http, user){
 
 			$http.post("backend/login.php", data).success(function(response){
 
-				if(response==="failed"){
+				if(response==="credFail"){
+					$scope.login_message = {
+						'display': "block"
+					};
 
 				}else{
 
@@ -28,9 +29,10 @@ courseApp.controller('navController', function($scope, $location, $http, user){
 						'display': "inline-block"
 					};
 
+
 					user.email=response;
 
-					$scope.userEmail = response;
+					$scope.userEmail = response;''
 
 				}	
 
@@ -83,6 +85,11 @@ courseApp.config(function($routeProvider){
 			templateUrl : 'backend/confirmation.php'
 		})
 
+		.when('/restorePass', {
+			templateUrl : 'restore.html',
+			controller : 'restorePassController'
+		})
+
 		.when('/contact', {
 			templateUrl : 'contact.html',
 			controller : 'contactController'
@@ -97,6 +104,7 @@ courseApp.controller('messageController', function($scope){
 courseApp.controller('contactController', function($scope){
 	$scope.message = 'Contact mee pleeaase';
 });
+
 
 
 

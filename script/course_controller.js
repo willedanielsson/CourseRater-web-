@@ -15,6 +15,8 @@ courseApp.controller('courseController', function($scope, $http, user){
 	}
 
 
+
+
   	$scope.getUniversities = function(country){
   		$http.get("backend/getUniversitiesForCountry.php?country="+country).success(function(response){
   			$scope.universities = response;
@@ -53,6 +55,9 @@ courseApp.controller('courseController', function($scope, $http, user){
 			$scope.page="addReview"
 			$scope.course = course;
 			$scope.university = university;
+			$scope.add_review_message = {
+				'display': "none"
+			};
 		}else{
 			$scope.add_review_message = {
 				'display': "inline-block"
@@ -64,6 +69,9 @@ courseApp.controller('courseController', function($scope, $http, user){
 		if(user.email!=""){	
 			$scope.page='addCourse';
 			$scope.message="";
+			$scope.add_course_warning_text = {
+				'display': "none"
+			};
 		}else{
 			$scope.add_course_warning_text = {
 				'display': "block"

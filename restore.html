@@ -1,0 +1,30 @@
+<div class="restore_pass">
+	<h1>{{message}}</h1>
+	<form id="restore_pass_form" class="form_form" accept-charset='UTF-8'>
+		<div class="form_item">
+			<label for="email">
+				<i class="fa fa-envelope-o"></i>
+			</label>
+			<input type="email" name="email" ng-model="email" placeholder="Email" required/>
+		</div>
+
+		<div class="form_item">
+				<label for="password">
+					<i class="fa fa-shield"></i>
+				</label>
+				<input type="password" name="password" ng-model="pass" placeholder="Password" required/>
+			</div>
+			
+			<div class="form_item">
+				<label for=repassword>
+					<i class="fa fa-shield"></i>
+				</label>		
+				<input type="password" name="repassword" ng-model="re_pass" placeholder="Repeat Password" required/>
+			</div>
+
+		<input type="submit" class="button" ng-click="restorePass(email, pass, re_pass)" value="Restore"/>	
+	</form>
+
+
+
+</div>
