@@ -90,6 +90,7 @@
 	-webkit-box-shadow: none; 
   	-moz-box-shadow: none; 
   	box-shadow: none;
+  	cursor: pointer;
 }
 
 .courses #input #view_course_button{
@@ -190,6 +191,13 @@
 	border-radius: 5px;
 	border: 1px solid #78F36B;
 	box-shadow: 0px 1px 5px #888888;
+
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .courses #course_information #course_rating li:hover{
@@ -199,7 +207,8 @@
 
 .courses #course_information #course_rating #usefulness,
 .courses #course_information #course_rating #difficulty{
-box-shadow: none;
+	box-shadow: none;
+
 }
 
 .courses #course_information #course_rating #usefulness:hover,
@@ -207,8 +216,21 @@ box-shadow: none;
 	cursor: default;
 	box-shadow: none;
 }
+
+.courses #course_information #course_rating #usefulness .part,
+.courses #course_information #course_rating #difficulty .part{
+	padding-left: 38px;
+}
+
 .courses #course_information #course_rating li .course_information_list_item_container{
 	margin-top: 12px;
+
+}
+
+.courses #course_information #course_rating li .course_information_list_item_container .comment_icon{
+	display: table-cell;
+	padding-left: 10px;
+	font-size: 25px;
 
 }
 
@@ -219,7 +241,7 @@ box-shadow: none;
 }
 
 .courses #course_information #course_rating li .part{
-	width: 300px;
+	width: 270px;
 	display: table-cell;
 	padding-bottom: 15px;
 	padding-left: 10px;
@@ -266,7 +288,7 @@ box-shadow: none;
 	box-shadow: 0px 0px 10px #888888;
 	height: auto;
 	position: relative;
-
+	width: 600px;
 	margin-left: 10px;
 	margin-right: 10px;
 
@@ -276,6 +298,7 @@ box-shadow: none;
 	font-size: 17px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	margin-left: 10px;
 	padding: 10px;
 	padding-top: 20px;
 	color: gray;
@@ -387,7 +410,7 @@ box-shadow: none;
     cursor: pointer;
 }
 .courses #add_review #form_div_review form .part_review .rating .filled {
-    color: red;
+    color: #78F36B;
 }
 
 .courses #add_review #form_div_review form .part_review .review_comment{

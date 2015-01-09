@@ -126,8 +126,13 @@
 				</li>
 
 <!-- Exam -->
-				<li id="exam_rating" ng-style="exam_style" ng-click="getComments(toggle_exam=!toggle_exam, 'exam')">
-					<div class="course_information_list_item_container">	
+				<li id="exam_rating" ng-style="exam_style" ng-click="getComments(toggle_exam=!toggle_exam, tog_exam_icon=!tog_exam_icon)">
+					<div class="course_information_list_item_container">
+						<div class="comment_icon">
+							<i ng-hide="tog_exam_icon" class="fa fa-chevron-right"></i>
+							<i ng-show="tog_exam_icon" class="fa fa-chevron-down"></i>
+						</div>	
+
 						<div class="part">
 							<p>Exam</p>
 						</div>
@@ -154,8 +159,13 @@
 
 			
 <!-- Lecture -->			
-			<li id="lecture_rating" ng-style="lecture_style" ng-click="getComments(toggle_lecture=!toggle_lecture, 'lectures')">
-			<div class="course_information_list_item_container">	
+			<li id="lecture_rating" ng-style="lecture_style" ng-click="getComments(toggle_lecture=!toggle_lecture, tog_lecture_icon=!tog_lecture_icon)">
+			<div class="course_information_list_item_container">
+				<div class="comment_icon">
+					<i ng-hide="tog_lecture_icon" class="fa fa-chevron-right"></i>
+					<i ng-show="tog_lecture_icon" class="fa fa-chevron-down"></i>
+				</div>	
+
 				<div class="part">
 					<p>Lectures</p>
 				</div>
@@ -179,8 +189,14 @@
 			<span ng-hide="toggle_lecture"></span>		
 			</li>
 
-			<li id="lesson_rating" ng-style="lesson_style" ng-click="getComments(toggle_lesson=!toggle_lesson)">
-			<div class="course_information_list_item_container">	
+			<li id="lesson_rating" ng-style="lesson_style" ng-click="getComments(toggle_lesson=!toggle_lesson, tog_lesson_icon=!tog_lesson_icon)">
+			<div class="course_information_list_item_container">
+
+				<div class="comment_icon">
+					<i ng-hide="tog_lesson_icon" class="fa fa-chevron-right"></i>
+					<i ng-show="tog_lesson_icon" class="fa fa-chevron-down"></i>
+				</div>	
+
 				<div class="part">
 					<p>Lessons</p>
 				</div>
@@ -204,8 +220,13 @@
 			<span ng-hide="toggle_lesson"></span>		
 			</li>
 
-			<li id="laboratory_rating" ng-style="laboratory_style" ng-click="getComments(toggle_lab=!toggle_lab)">
+			<li id="laboratory_rating" ng-style="laboratory_style" ng-click="getComments(toggle_lab=!toggle_lab, tog_lab_icon=!tog_lab_icon)">
 			<div class="course_information_list_item_container">
+				<div class="comment_icon">
+					<i ng-hide="tog_lab_icon" class="fa fa-chevron-right"></i>
+					<i ng-show="tog_lab_icon" class="fa fa-chevron-down"></i>
+				</div>	
+
 				<div class="part">
 					<p>Laboratory</p>
 				</div>
@@ -229,8 +250,13 @@
 			<span ng-hide="toggle_lab"></span>			
 			</li>
 
-			<li id="seminar_rating" ng-style="seminar_style" ng-click="getComments(toggle_seminar=!toggle_seminar)">
+			<li id="seminar_rating" ng-style="seminar_style" ng-click="getComments(toggle_seminar=!toggle_seminar, tog_sem_icon=!tog_sem_icon)">
 			<div class="course_information_list_item_container">
+				<div class="comment_icon">
+					<i ng-hide="tog_sem_icon" class="fa fa-chevron-right"></i>
+					<i ng-show="tog_sem_icon" class="fa fa-chevron-down"></i>
+				</div>	
+
 				<div class="part">
 					<p>Seminar</p>
 				</div>
@@ -254,8 +280,13 @@
 			<span ng-hide="toggle_seminar"></span>	
 			</li>
 
-			<li id="project_rating" ng-style="project_style" ng-click="getComments(toggle_project=!toggle_project)">
+			<li id="project_rating" ng-style="project_style" ng-click="getComments(toggle_project=!toggle_project, tog_pro_icon=!tog_pro_icon)">
 			<div class="course_information_list_item_container">
+				<div class="comment_icon">
+					<i ng-hide="tog_pro_icon" class="fa fa-chevron-right"></i>
+					<i ng-show="tog_pro_icon" class="fa fa-chevron-down"></i>
+				</div>	
+
 				<div class="part">
 					<p>Project</p>
 				</div>
@@ -279,8 +310,13 @@
 			<span ng-hide="toggle_project"></span>		
 			</li>
 
-			<li id="homeassignment_rating" ng-style="homeassignment_style" ng-click="getComments(toggle_home=!toggle_home)">
+			<li id="homeassignment_rating" ng-style="homeassignment_style" ng-click="getComments(toggle_home=!toggle_home, tog_home_icon=!tog_home_icon)">
 			<div class="course_information_list_item_container">
+				<div class="comment_icon">
+					<i ng-hide="tog_home_icon" class="fa fa-chevron-right"></i>
+					<i ng-show="tog_home_icon" class="fa fa-chevron-down"></i>
+				</div>	
+
 				<div class="part">
 					<p>Homeassignment</p>
 				</div>
@@ -304,8 +340,13 @@
 			<span ng-hide="toggle_home"></span>		
 			</li>
 
-			<li id="case_rating" ng-style="case_style" ng-click="getComments(toggle_case=!toggle_case)">
+			<li id="case_rating" ng-style="case_style" ng-click="getComments(toggle_case=!toggle_case, tog_case_icon=!tog_case_icon)">
 			<div class="course_information_list_item_container">
+				<div class="comment_icon">
+					<i ng-hide="tog_case_icon" class="fa fa-chevron-right"></i>
+					<i ng-show="tog_case_icon" class="fa fa-chevron-down"></i>
+				</div>	
+
 				<div class="part">
 					<p>Case</p>
 				</div>
@@ -322,8 +363,8 @@
 			</div>
 			<ul class="comments_list" ng-show="toggle_case">
 				<li ng-repeat="comments in courseInformation.caseComments" class="comments_list_items">
-					<p>{{comments.caseComment}}</p>
-					<p>2014</p>
+					<p class="comment">{{comments.caseComment}}</p>
+					<p class="date">2014</p>
 				</li>
 			</ul>
 			<span ng-hide="toggle_case"></span>		

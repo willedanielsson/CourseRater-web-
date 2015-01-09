@@ -81,3 +81,11 @@
   	cursor: pointer;
 
 }
+
+.restore_pass p{
+	font-size: 14px;
+	color: #D8000C;
+	margin-top: 10px;
+	margin-left: 50px;
+	margin-bottom: 50px;
+}

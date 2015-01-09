@@ -1,5 +1,7 @@
 courseApp.controller('rateCourseController', function($scope, $http, user){
 
+    
+
 	// Get values of chosen course to check which parts that is in the course
     var university = $scope.university;
     var course = $scope.course;

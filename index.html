@@ -16,6 +16,7 @@
 <script type="text/javascript" src="script/restore_controller.js"></script>
 <link rel="stylesheet" href="css/header_style.css">
 <link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/contact.css">
 <link rel="stylesheet" href="css/restore_pass.css">
 <link rel="stylesheet" href="css/course_style.css">
 <link rel="stylesheet" href="css/reset_stylesheet.css">
@@ -79,9 +80,12 @@
 
 					<a id="logout_button" ng-click=logout() href="#">Logout</a>
 				</div>	
-				<div id="login_mess" ng-style="login_message">
-					<p>Wrong credentials!</p>
-					<a href="#">Forgot password?</a>
+				<div class="mess" id="login_mess" ng-style="login_message">
+					<p>Wrong credentials! After 4 failed attempts, you will be locked out for 10 minutes.</p>
+					<a href="#/restorePass">Forgot password?</a>
+				</div>
+				<div class="mess" id="locked_mess" ng-style="locked_message">
+					<p>You have been locked out for 10 minutes</p>
 				</div>
 			</div>	
 		</nav>

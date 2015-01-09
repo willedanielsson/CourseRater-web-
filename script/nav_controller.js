@@ -1,4 +1,20 @@
-courseApp.controller('navController', function($scope, $location, $http, user){
+
+
+courseApp.controller('navController', function($scope, $location, $timeout, $http, user){
+
+	$scope.hideLoginDiv = function(){
+		$scope.login_message = {
+			'display': "none"
+		};
+	}
+
+	$scope.hideLockedDiv = function(){
+		$scope.locked_message = {
+			'display': "none"
+		};
+	}
+
+	$scope.test = "Heeeeejejej";
 
 	$scope.isActive = function(route){
 		return route === $location.path();
@@ -14,10 +30,31 @@ courseApp.controller('navController', function($scope, $location, $http, user){
 
 			$http.post("backend/login.php", data).success(function(response){
 
+				console.log(response);
+
 				if(response==="credFail"){
 					$scope.login_message = {
 						'display': "block"
 					};
+					$scope.locked_message = {
+						'display': "none"
+					};
+					$timeout(function () {
+						$scope.hideLoginDiv();
+					}, 3000);
+
+				}else if(response==="lockedOut"){
+
+					$scope.locked_message = {
+						'display': "block"
+					};
+					$scope.login_message = {
+						'display': "none"
+					};
+
+					$timeout(function () {
+						$scope.hideLockedDiv();
+					}, 3000);
 
 				}else{
 
@@ -29,12 +66,20 @@ courseApp.controller('navController', function($scope, $location, $http, user){
 						'display': "inline-block"
 					};
 
+					$scope.login_message = {
+						'display': "none"
+					};
+
+					$scope.locked_message = {
+						'display': "none"
+					};
+
 
 					user.email=response;
 
-					$scope.userEmail = response;''
+					$scope.userEmail = response;
 
-				}	
+				}
 
 				
 
@@ -86,7 +131,7 @@ courseApp.config(function($routeProvider){
 		})
 
 		.when('/restorePass', {
-			templateUrl : 'restore.html',
+			templateUrl : 'restorePass.html',
 			controller : 'restorePassController'
 		})
 
