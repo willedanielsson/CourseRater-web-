@@ -122,7 +122,7 @@ courseApp.config(function($routeProvider){
 		})
 
 		.when('/message/:type', {
-			templateUrl : 'message.php',
+			templateUrl : 'message.html',
 			controller : 'messageController'
 		})
 

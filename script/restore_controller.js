@@ -12,15 +12,14 @@ courseApp.controller('restorePassController', function($scope, $http){
 				}
 				$http.post("backend/restorePassword.php", data).success(function(response){
 		  			if(response=="succes"){
-		  				console.log("Added");
+		  				$scope.warning = "A confirmation email has been sent!"
 		  			}else if(response=="connectionError"){
-		  				console.log("Connection error");
+		  				$scope.warning="Connection error";
 		  			}else if(response=="noUser"){
-		  				console.log("User Does not exist");
+		  				$scope.warning="User Does not exist!";
 		  			}
 		  		});
 			}else{
-				//DEVELOP
 				$scope.warning="Passwords didn't match!";
 			}
 		}else{
