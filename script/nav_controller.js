@@ -121,7 +121,7 @@ courseApp.config(function($routeProvider){
 			controller : 'courseController'
 		})
 
-		.when('/message', {
+		.when('/message/:type', {
 			templateUrl : 'message.php',
 			controller : 'messageController'
 		})
@@ -130,20 +130,21 @@ courseApp.config(function($routeProvider){
 			templateUrl : 'backend/confirmation.php'
 		})
 
-		.when('/restorePass', {
-			templateUrl : 'restorePass.html',
-			controller : 'restorePassController'
+		.when('/about', {
+			templateUrl : 'about.html',
+			
 		})
 
 		.when('/contact', {
 			templateUrl : 'contact.html',
 			controller : 'contactController'
+		})
+
+		.when('/restorePass', {
+			templateUrl : 'restorePass.html',
+			controller : 'restorePassController'
 		});
-});
 
-
-courseApp.controller('messageController', function($scope){
-	$scope.message = 'Im all about the bass';
 });
 
 courseApp.controller('contactController', function($scope){

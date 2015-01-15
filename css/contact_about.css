@@ -1,0 +1,67 @@
+.contact{
+	margin: 10px 50px 50px 50px;
+}
+
+.contact .contact_info{
+	display: table-cell;
+	width: 400px;
+}
+
+.contact #beta{
+	padding-right: 100px;
+
+}
+
+.contact .contact_info h1{
+	margin-bottom: 10px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.contact .contact_info p{
+	font-size: 15px;
+	margin-bottom: 10px;
+	line-height: 22px;
+	color: #4D4D4D
+}
+
+.contact .contact_info a{
+	font-size: 15px;
+}
+
+.about{
+	margin: 10px 50px 50px 50px;
+}
+.about #head{
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.about #business, .about #user_information{
+	width: 400px;
+	display: table-cell;
+}
+
+.about #business{
+	padding-right: 100px;
+}
+
+.about h1{
+	font-size: 50px;
+	font-weight: bold;
+	color: #78F36B;
+}
+
+.about h2{
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.about p{
+	font-size: 15px;
+	margin-bottom: 10px;
+	line-height: 18px;
+	color: #4D4D4D
+}

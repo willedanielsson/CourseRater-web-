@@ -11,14 +11,16 @@
 <script type="text/javascript" src="script/nav_controller.js"></script>
 <script type="text/javascript" src="script/course_controller.js"></script>
 <script type="text/javascript" src="script/add_course_controller.js"></script>
+<script type="text/javascript" src="script/message_controller.js"></script>
 <script type="text/javascript" src="script/rate_course_controller.js"></script>
 <script type="text/javascript" src="script/home_controller.js"></script>
 <script type="text/javascript" src="script/restore_controller.js"></script>
 <link rel="stylesheet" href="css/header_style.css">
 <link rel="stylesheet" href="css/home.css">
-<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/contact_about.css">
 <link rel="stylesheet" href="css/restore_pass.css">
 <link rel="stylesheet" href="css/course_style.css">
+<link rel="stylesheet" href="css/message_style.css">
 <link rel="stylesheet" href="css/reset_stylesheet.css">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -34,7 +36,7 @@
 			<ul id="navigation_menu">
 				<li ng-class="{ active: isActive('/') }">
 					<a href="#">
-						<span class="fa fa-bolt"></span>
+						<span class="fa fa-home"></span>
 						Home
 					</a>
 				</li>
@@ -45,14 +47,14 @@
 						Courses
 					</a>
 				</li>
-<!--
+
 				<li ng-class="{ active: isActive('/about') }" > 
 					<a href="#about">
-						<span class="fa fa-"></span>
+						<span class="fa fa-info-circle"></span>
 						About
 					</a>
 				</li>
-			-->
+			
 
 				<li ng-class="{ active: isActive('/contact') }" >
 					<a href="#contact">
