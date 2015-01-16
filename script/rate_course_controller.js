@@ -1,6 +1,15 @@
 courseApp.controller('rateCourseController', function($scope, $http, user){
 
-    
+    $scope.years=[
+        '2015',
+        '2014',
+        '2013',
+        '2012',
+        '2011',
+        '2010',
+        '2009',
+        '2008'
+    ];
 
 	// Get values of chosen course to check which parts that is in the course
     var university = $scope.university;
@@ -92,7 +101,7 @@ courseApp.controller('rateCourseController', function($scope, $http, user){
     });
 
 
-    $scope.submitReview = function (data){
+    $scope.submitReview = function (data, year){
         
         var usefulnessRating = data[0].current;
         var difficultyRating = data[1].current;
@@ -174,7 +183,8 @@ courseApp.controller('rateCourseController', function($scope, $http, user){
             'homeassignmentComment': homeassignmentComment,
             'caseRating': caseRating,
             'caseComment': caseComment,
-            'userEmail': user.email
+            'userEmail': user.email,
+            'year': year
         };
        
         $http.post("backend/addReviewWeb.php", inputData).success(function(response){

@@ -12,6 +12,7 @@ courseApp.controller('homeController', function($scope, $http){
     $scope.getUniversities = function(country){
         $http.get("backend/getUniversitiesForCountry.php?country="+country).success(function(response){      
              $scope.universities = response;
+            
         });
    }
 

@@ -1,4 +1,9 @@
 .courses{
+	-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
 	padding-bottom: 50px;
 }
 
@@ -192,12 +197,6 @@
 	border: 1px solid #78F36B;
 	box-shadow: 0px 1px 5px #888888;
 
-	-webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 .courses #course_information #course_rating li:hover{
@@ -295,13 +294,13 @@
 }
 
 .courses #course_information #course_rating .comments_list .comments_list_items .comment{
-	font-size: 17px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: 10px;
+	font-size: 15px;
+	margin:10px;
 	padding: 10px;
 	padding-top: 20px;
-	color: gray;
+	
+	line-height: 20px;
+	color: #4D4D4D
 }
 
 .courses #course_information #course_rating .comments_list .comments_list_items .date{
@@ -309,7 +308,7 @@
 	font-style: italic;
 	position: absolute;
 	top: 5px;
-	left: 10px;
+	margin-left: 10px;
 }
 .courses #add_course{
 
@@ -422,6 +421,24 @@
 
 	font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 13px;
+}
+
+.courses #add_review #form_div_review select{
+	width: 160px;
+	height: 30px;
+	margin-top: 10px;
+
+	font-size: 15px;
+
+	background-color: #fff;
+	border: solid 1px #cbc9c9;
+	border-radius: 5px;
+	box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+
+    -webkit-border-radius: 5px;
+  	-moz-border-radius: 5px;
+	-webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+	-moz-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
 }
 
 .courses #add_review .form_div #add_review_message{

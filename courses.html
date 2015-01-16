@@ -497,8 +497,13 @@
        					 	ng-model="rating.comment" placeholder="Comment (optional)"></textarea>
         			</div>
         				
-
-				<input type="submit" ng-click="submitReview(ratings)" class="button" id="add_review_form_button" value="Add"/>
+				<select name="year" ng-model="participant_year" required>
+					<option value="" disabled selected>Participant year</option>
+					<option ng-repeat="year in years">
+						{{year}}
+					</option>
+				</select>
+				<input type="submit" ng-click="submitReview(ratings, participant_year)" class="button" id="add_review_form_button" value="Add"/>
 				</form>
 				
 

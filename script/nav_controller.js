@@ -14,8 +14,6 @@ courseApp.controller('navController', function($scope, $location, $timeout, $htt
 		};
 	}
 
-	$scope.test = "Heeeeejejej";
-
 	$scope.isActive = function(route){
 		return route === $location.path();
 	}
@@ -41,7 +39,7 @@ courseApp.controller('navController', function($scope, $location, $timeout, $htt
 					};
 					$timeout(function () {
 						$scope.hideLoginDiv();
-					}, 3000);
+					}, 7000);
 
 				}else if(response==="lockedOut"){
 
