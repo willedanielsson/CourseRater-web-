@@ -1,7 +1,6 @@
 courseApp.controller('messageController', function($scope, $http, $routeParams){
 
 	var input = $routeParams.type;
-	console.log(input);
 
 	if(input=="emailConfirmed"){
 		$scope.message="Your account has been activated!";

@@ -66,7 +66,6 @@ courseApp.controller('addCourseController', function($scope, $http, user){
 
 
 			$http.post("backend/addCourseWeb.php", data).success(function(response){	
-				console.log(response);
 				if(response=="courseAlreadyExist"){
 					$scope.message="That course already exists!";
 

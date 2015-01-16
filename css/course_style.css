@@ -58,9 +58,7 @@ user-select: none;
 
 .courses .input_holder #select_university,
 .courses .input_holder #select_course {
-	/*
-	DEVELOP
-	pointer-events: none;*/
+	pointer-events: none;
 	background-color: transparent;
 
 }
@@ -147,7 +145,7 @@ user-select: none;
 .courses #course_information #course_rating .general_rating{
 	font-size: 40px;
 	font-weight: bold;
-	padding-left: 467px;
+	padding-left: 477px;
 	display: table-cell;
 	color: #78F36B;
 }

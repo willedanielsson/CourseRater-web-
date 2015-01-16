@@ -28,8 +28,6 @@ courseApp.controller('navController', function($scope, $location, $timeout, $htt
 
 			$http.post("backend/login.php", data).success(function(response){
 
-				console.log(response);
-
 				if(response==="credFail"){
 					$scope.login_message = {
 						'display': "block"

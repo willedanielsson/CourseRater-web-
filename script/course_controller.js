@@ -90,7 +90,6 @@ courseApp.controller('courseController', function($scope, $http, user){
 
 				//Give the ratings their needed data
 				$scope.courseInformation = response;
-				console.log(response);
 
 				var averageRating = 0;
 				var numberOfParts = 0;
