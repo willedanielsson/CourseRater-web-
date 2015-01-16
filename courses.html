@@ -151,7 +151,7 @@
 					<ul class="comments_list" ng-show="toggle_exam">
 						<li ng-repeat="comments in courseInformation.examComments" class="comments_list_items">
 							<p class="comment" >{{comments.examComment}}</p>
-							<p class="date" >2014</p>
+							<p class="date" >{{comments.year}}</p>
 						</li>
 					</ul>
 
@@ -184,7 +184,7 @@
 			<ul class="comments_list" ng-show="toggle_lecture">
 				<li ng-repeat="comments in courseInformation.lectureComments" class="comments_list_items">
 					<p class="comment">{{comments.lectureComment}}</p>
-					<p class="date" >2014</p>
+					<p class="date" >{{comments.year}}</p>
 				</li>
 			</ul>
 			<span ng-hide="toggle_lecture"></span>		
@@ -215,7 +215,7 @@
 			<ul class="comments_list" ng-show="toggle_lesson">
 				<li ng-repeat="comments in courseInformation.lessonComments" class="comments_list_items">
 					<p class="comment">{{comments.lessonComment}}</p>
-					<p class="date" >2014</p>
+					<p class="date" >{{comments.year}}</p>
 				</li>
 			</ul>
 			<span ng-hide="toggle_lesson"></span>		
@@ -245,7 +245,7 @@
 			<ul class="comments_list" ng-show="toggle_lab">
 				<li ng-repeat="comments in courseInformation.laboratoryComments" class="comments_list_items">
 					<p class="comment">{{comments.laboratoryComment}}</p>
-					<p class="date" >2014</p>
+					<p class="date" >{{comments.year}}</p>
 				</li>
 			</ul>
 			<span ng-hide="toggle_lab"></span>			
@@ -275,7 +275,7 @@
 			<ul class="comments_list" ng-show="toggle_seminar">
 				<li ng-repeat="comments in courseInformation.seminarComments" class="comments_list_items">
 					<p class="comment">{{comments.seminarComment}}</p>
-					<p class="date" >2014</p>
+					<p class="date" >{{comments.year}}</p>
 				</li>
 			</ul>
 			<span ng-hide="toggle_seminar"></span>	
@@ -305,7 +305,7 @@
 			<ul class="comments_list" ng-show="toggle_project">
 				<li ng-repeat="comments in courseInformation.projectComments" class="comments_list_items">
 					<p class="comment">{{comments.projectComment}}</p>
-					<p class="date" >2014</p>
+					<p class="date" >{{comments.year}}</p>
 				</li>
 			</ul>
 			<span ng-hide="toggle_project"></span>		
@@ -335,7 +335,7 @@
 			<ul class="comments_list" ng-show="toggle_home">
 				<li ng-repeat="comments in courseInformation.homeassignmentComments" class="comments_list_items">
 					<p class="comment">{{comments.homeassignmentComment}}</p>
-					<p class="date" >2014</p>
+					<p class="date" >{{comments.year}}</p>
 				</li>
 			</ul>
 			<span ng-hide="toggle_home"></span>		
@@ -365,7 +365,7 @@
 			<ul class="comments_list" ng-show="toggle_case">
 				<li ng-repeat="comments in courseInformation.caseComments" class="comments_list_items">
 					<p class="comment">{{comments.caseComment}}</p>
-					<p class="date">2014</p>
+					<p class="date">{{comments.year}}</p>
 				</li>
 			</ul>
 			<span ng-hide="toggle_case"></span>		
