@@ -113,7 +113,7 @@
 	display: none;
 }
 
-.courses #add_course_holder #add_course_button .warning_text{
+.courses .warning_text{
 	padding-top: 10px;
 	font-size: 15px;
 	color: #D8000C;

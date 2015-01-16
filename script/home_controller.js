@@ -2,12 +2,16 @@ courseApp.controller('homeController', function($scope, $http){
     $scope.message_register="";
 
     $http.get("backend/getCountries.php").success(function(response){
-        $scope.countries = response;
+         if(response=="getCountriesFailed"){
+                $scope.message_register="Failed to retrieve countries, please refresh!";
+        }else{
+            $scope.countries = response;
+        }
     });
 
     $scope.getUniversities = function(country){
-        $http.get("backend/getUniversitiesForCountry.php?country="+country).success(function(response){
-            $scope.universities = response;
+        $http.get("backend/getUniversitiesForCountry.php?country="+country).success(function(response){      
+             $scope.universities = response;
         });
    }
 

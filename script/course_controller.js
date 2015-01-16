@@ -1,7 +1,14 @@
 courseApp.controller('courseController', function($scope, $http, user){
 
+
+	$scope.warning = "";
+
 	$http.get("backend/getCountries.php").success(function(response){
-		$scope.countries = response;
+		if(response=="getCountriesFailed"){
+			$scope.warning="Failed to retrieve countries, please refresh!";
+		}else{
+			$scope.countries = response;
+		}
 	});
 
 	$scope.page = 'def';
