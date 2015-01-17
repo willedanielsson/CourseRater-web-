@@ -1,5 +1,26 @@
 courseApp.controller('addCourseController', function($scope, $http, user){
 
+	if(user.country==""){
+		$scope.preCountry = "Select Country";
+	}else{
+		$scope.preCountry = user.country;
+		$scope.styleSelectUniversity = {
+  			'pointer-events':"visible",
+  			'background-color': "#fff"
+  		}
+	}
+
+	if(user.university==""){
+		$scope.preUniversity = "Select University";
+	}else{
+		$scope.preUniversity = user.university;
+		$scope.styleSelectCourse = {
+  			'pointer-events':"visible",
+  			'background-color': "#fff"
+  		}
+
+	}
+
 	$scope.submitCourse = function(university, course, lectures, lessons, exam, lab, seminar, project, home, casep){
 		if(university!==undefined || course!==undefined){
 			if(lectures==true){

@@ -1,8 +1,30 @@
 courseApp.controller('courseController', function($scope, $http, user){
 
-
 	$scope.warning = "";
 
+	if(user.country==""){
+		$scope.preCountry = "Select Country";
+	}else{
+		$scope.preCountry = user.country;
+		$scope.styleSelectUniversity = {
+  			'pointer-events':"visible",
+  			'background-color': "#fff"
+  		}
+	}
+
+	if(user.university==""){
+		$scope.preUniversity = "Select University";
+	}else{
+		$scope.preUniversity = user.university;
+		$scope.styleSelectCourse = {
+  			'pointer-events':"visible",
+  			'background-color': "#fff"
+  		}
+  		$http.get("backend/getCoursesForUniversity.php?chosenUniversity="+user.university).success(function(response){
+			$scope.courses = response;
+		});
+	}
+	
 	$http.get("backend/getCountries.php").success(function(response){
 		if(response=="getCountriesFailed"){
 			$scope.warning="Failed to retrieve countries, please refresh!";
@@ -83,10 +105,16 @@ courseApp.controller('courseController', function($scope, $http, user){
 
 			//When pressed 'View Course', we display the ratings by default
 
-			$scope.page='view';
-
 			$scope.course = course;
 			$http.get("backend/getCourseInformation.php?course="+course).success(function(response){
+
+				//Check if there is no ratings
+				if(response.Ratings[0]['AVG(cI.usefulness)']==null ||
+					response.Ratings[0]['AVG(cI.difficulty)']== null){
+					// No ratings
+					$scope.warning = "No one has rated this course yet!";
+				}
+					$scope.page='view';
 
 				//Give the ratings their needed data
 				$scope.courseInformation = response;
@@ -226,6 +254,7 @@ courseApp.controller('courseController', function($scope, $http, user){
 				
 				$scope.generalRating = averageRating/numberOfParts;
 
+				
 			});
 		}else{
 

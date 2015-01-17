@@ -70,10 +70,11 @@ courseApp.controller('navController', function($scope, $location, $timeout, $htt
 						'display': "none"
 					};
 
+					user.email=response[0];
+					user.country = response[1];
+					user.university = response[2];
 
-					user.email=response;
-
-					$scope.userEmail = response;
+					$scope.userEmail = response[0];
 
 				}
 

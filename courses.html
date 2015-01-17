@@ -6,8 +6,8 @@
 			<p>Find Course</p>
 			<div class="input_holder">
 
-				<select id="select_country" ng-model="model_selectedCountry" ng-change="getUniversities(model_selectedCountry)">
-					<option value="" disabled selected>Select Country</option>
+				<select id="select_country" ng-model="model_selectedCountry2" ng-change="getUniversities(model_selectedCountry2)">
+					<option value="" disabled selected>{{preCountry}}</option>
 					<option ng-repeat="country in countries">
 						{{country}}
 					</option>	
@@ -17,8 +17,8 @@
 
 			<div class="input_holder">
 
-				<select id="select_university" ng-model="model_selectedUniversity" ng-style=styleSelectUniversity ng-change="getCourses(model_selectedUniversity)" >
-					<option value="" disabled selected>Select University</option>
+				<select id="select_university" ng-model="model_selectedUniversity2" ng-style=styleSelectUniversity ng-change="getCourses(model_selectedUniversity2)" >
+					<option value="" disabled selected>{{preUniversity}}</option>
 					<option ng-repeat="university in universities">
 						{{university}}
 					</option>
@@ -386,7 +386,7 @@
 							<i class="fa fa-globe"></i>
 						</label>
 						<select name="country" ng-model="model_selectedCountry" ng-change="getUniversities(model_selectedCountry)" required>
-							<option value="" disabled selected>Select Country</option>
+							<option value="" disabled selected>{{preCountry}}</option>
 							<option ng-repeat="country in countries">
 								{{country}}
 							</option>	
@@ -398,7 +398,7 @@
 							<i class="fa fa-university"></i>
 						</label>
 						<select name="university" ng-model="model_selectedUniversity" required>
-							<option value="" disabled selected>Select University</option>
+							<option value="" disabled selected>{{preUniversity}}</option>
 							<option ng-repeat="university in universities">
 								{{university}}
 							</option>

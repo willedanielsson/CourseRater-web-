@@ -114,6 +114,7 @@ user-select: none;
 
 .courses #add_course_holder #add_course_button #add_course_warning_text{
 	display: none;
+	font-size: 15px;
 }
 
 .courses .warning_text{
@@ -121,10 +122,14 @@ user-select: none;
 	font-size: 15px;
 	color: #D8000C;
 }
+
+.courses #add_course_holder #add_course_button #first_warning_text{
+	font-size: 15px;
+}
 .courses #add_course_holder #add_course_button #second_warning_text{
 	padding-top: 0px;
+	font-size: 15px;
 }
-
 
 .courses #course_information{
 	margin: 50px 50px 50px 50px;
