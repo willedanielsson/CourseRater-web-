@@ -1,5 +1,3 @@
-
-
 courseApp.controller('navController', function($scope, $location, $timeout, $http, user){
 
 	$scope.hideLoginDiv = function(){
@@ -103,10 +101,9 @@ courseApp.controller('navController', function($scope, $location, $timeout, $htt
 });
 
 // Configure the routes
-courseApp.config(function($routeProvider){
+courseApp.config(function($routeProvider, $locationProvider){
 	$routeProvider
 
-		//route for Home page
 		.when('/', {
 			templateUrl : 'home.html',
 			controller : 'homeController'
@@ -142,10 +139,11 @@ courseApp.config(function($routeProvider){
 			controller : 'restorePassController'
 		});
 
+		//$locationProvider.html5Mode(true);
+
 });
 
 courseApp.controller('contactController', function($scope){
-	$scope.message = 'Contact mee pleeaase';
 });
 
 
