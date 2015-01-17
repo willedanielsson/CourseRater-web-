@@ -1,4 +1,25 @@
-courseApp.controller('navController', function($scope, $location, $timeout, $http, user){
+courseApp.controller('navController', function($scope, $location, $timeout, $http, user, ipCookie){
+	if(ipCookie('email')!==undefined){
+
+		$scope.login_form = {
+			'display': "none"
+		};
+
+		$scope.logged_in_box = {
+			'display': "inline-block"
+		};
+
+		$scope.login_message = {
+			'display': "none"
+		};
+
+		$scope.locked_message = {
+			'display': "none"
+		};
+
+		$scope.userEmail = ipCookie('email');
+
+	}
 
 	$scope.hideLoginDiv = function(){
 		$scope.login_message = {
@@ -68,9 +89,9 @@ courseApp.controller('navController', function($scope, $location, $timeout, $htt
 						'display': "none"
 					};
 
-					user.email=response[0];
-					user.country = response[1];
-					user.university = response[2];
+					ipCookie('email', response[0], {expires: 10});
+					ipCookie('country', response[1], {expires: 10});
+					ipCookie('university', response[2], {expires: 10});
 
 					$scope.userEmail = response[0];
 
@@ -91,9 +112,10 @@ courseApp.controller('navController', function($scope, $location, $timeout, $htt
 		$scope.logged_in_box = {
 			'display': "none"
 		};
-		user.email="";
-		user.country="";
-		user.university="";
+		
+		ipCookie.remove('email');
+		ipCookie.remove('country');
+		ipCookie.remove('university');
 
 		$scope.userEmail="";
 	}

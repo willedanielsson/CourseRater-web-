@@ -1,37 +1,31 @@
-courseApp.controller('courseController', function($scope, $http, user){
+courseApp.controller('courseController', function($scope, $http, ipCookie){
 
 	$scope.warning = "";
 
-	if(user.country==""){
+	if(ipCookie('country')==undefined){
 		$scope.preCountry = "Select Country";
 	}else{
-		$scope.preCountry = user.country;
+		$scope.preCountry = ipCookie('country');
 		$scope.styleSelectUniversity = {
   			'pointer-events':"visible",
   			'background-color': "#fff"
   		}
 	}
 
-	if(user.university==""){
+	if(ipCookie('university')==undefined){
 		$scope.preUniversity = "Select University";
 	}else{
-		$scope.preUniversity = user.university;
+		$scope.preUniversity = ipCookie('university');
 		$scope.styleSelectCourse = {
   			'pointer-events':"visible",
   			'background-color': "#fff"
   		}
-  		$http.get("backend/getCoursesForUniversity.php?chosenUniversity="+user.university).success(function(response){
+  		$http.get("backend/getCoursesForUniversity.php?chosenUniversity="+ipCookie('university')).success(function(response){
 			$scope.courses = response;
 		});
 	}
 	
-	$http.get("backend/getCountries.php").success(function(response){
-		if(response=="getCountriesFailed"){
-			$scope.warning="Failed to retrieve countries, please refresh!";
-		}else{
-			$scope.countries = response;
-		}
-	});
+
 
 	$scope.page = 'def';
 
@@ -44,7 +38,13 @@ courseApp.controller('courseController', function($scope, $http, user){
 	}
 
 
-
+	$http.get("backend/getCountries.php").success(function(response){
+		if(response=="getCountriesFailed"){
+			$scope.warning="Failed to retrieve countries, please refresh!";
+		}else{
+			$scope.countries = response;
+		}
+	});
 
   	$scope.getUniversities = function(country){
   		$http.get("backend/getUniversitiesForCountry.php?country="+country).success(function(response){
@@ -70,7 +70,7 @@ courseApp.controller('courseController', function($scope, $http, user){
 	}
 
 	$scope.addReview = function(course, university){
-		if(user.email!=""){
+		if(ipCookie('email')!==undefined){
 			$scope.page="addReview"
 			$scope.course = course;
 			$scope.university = university;
@@ -85,7 +85,7 @@ courseApp.controller('courseController', function($scope, $http, user){
 	} 
 	
 	$scope.addCourse = function(){
-		if(user.email!=""){	
+		if(ipCookie('email')!==undefined){	
 			$scope.page='addCourse';
 			$scope.message="";
 			$scope.add_course_warning_text = {

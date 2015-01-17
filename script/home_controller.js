@@ -1,5 +1,7 @@
-courseApp.controller('homeController', function($scope, $http){
+courseApp.controller('homeController', function($scope, $http, ipCookie){
     $scope.message_register="";
+
+   
 
     $http.get("backend/getCountries.php").success(function(response){
          if(response=="getCountriesFailed"){

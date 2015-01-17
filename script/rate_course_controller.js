@@ -1,4 +1,4 @@
-courseApp.controller('rateCourseController', function($scope, $http, user){
+courseApp.controller('rateCourseController', function($scope, $http, ipCookie){
 
     $scope.years=[
         '2015',
@@ -183,7 +183,7 @@ courseApp.controller('rateCourseController', function($scope, $http, user){
             'homeassignmentComment': homeassignmentComment,
             'caseRating': caseRating,
             'caseComment': caseComment,
-            'userEmail': user.email,
+            'userEmail': ipCookie('email'),
             'year': year
         };
        

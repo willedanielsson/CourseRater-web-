@@ -1,19 +1,19 @@
-courseApp.controller('addCourseController', function($scope, $http, user){
+courseApp.controller('addCourseController', function($scope, $http, ipCookie){
 
-	if(user.country==""){
+	if(ipCookie('country')==undefined){
 		$scope.preCountry = "Select Country";
 	}else{
-		$scope.preCountry = user.country;
+		$scope.preCountry = ipCookie('country');
 		$scope.styleSelectUniversity = {
   			'pointer-events':"visible",
   			'background-color': "#fff"
   		}
 	}
 
-	if(user.university==""){
+	if(ipCookie('university')==undefined){
 		$scope.preUniversity = "Select University";
 	}else{
-		$scope.preUniversity = user.university;
+		$scope.preUniversity = ipCookie('university');
 		$scope.styleSelectCourse = {
   			'pointer-events':"visible",
   			'background-color': "#fff"
@@ -82,7 +82,7 @@ courseApp.controller('addCourseController', function($scope, $http, user){
 				'course_part_project': project,
 				'course_part_homeassignment': home,
 				'course_part_case': casep,
-				'userEmail': user.email
+				'userEmail': ipCookie('email')
 			};
 
 
