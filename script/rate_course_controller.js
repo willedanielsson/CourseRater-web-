@@ -12,10 +12,18 @@ courseApp.controller('rateCourseController', function($scope, $http, ipCookie){
     ];
 
 	// Get values of chosen course to check which parts that is in the course
-    var university = $scope.university;
+    var university;
+    if($scope.preUniversity==undefined){
+        university = $scope.university;
+    }else{
+        university = $scope.preUniversity;
+    }
+      
     var course = $scope.course;
 
+
     $http.get("backend/getReviewParts.php?university="+university+"&course="+course).success(function(response){
+
         $scope.reviewParts = response;
 
         if($scope.reviewParts[0]==1){
