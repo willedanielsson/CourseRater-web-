@@ -39,6 +39,7 @@ courseApp.controller('navController', function($scope, $location, $timeout, $htt
 
 	$scope.login = function(email, password){
 
+
 		if(email!==undefined || password!==undefined){
 			var data = {
 				'email': email,
