@@ -113,6 +113,8 @@ courseApp.controller('courseController', function($scope, $http, ipCookie){
 					response.Ratings[0]['AVG(cI.difficulty)']== null){
 					// No ratings
 					$scope.warning = "No one has rated this course yet!";
+				}else{
+					$scope.warning="";
 				}
 					$scope.page='view';
 
@@ -121,12 +123,16 @@ courseApp.controller('courseController', function($scope, $http, ipCookie){
 
 				var averageRating = 0;
 				var numberOfParts = 0;
+
 				if(response.Ratings[0]['AVG(cI.usefulness)'] > 0){
 					var usefulnessPercent = (response.Ratings[0]['AVG(cI.usefulness)'])*20;
 					averageRating = averageRating + (response.Ratings[0]['AVG(cI.usefulness)']*1);
 					numberOfParts++;
 					$scope.usefulness_bar = {
 						'width' : usefulnessPercent+"%"
+					}
+					$scope.usefulness_style = {
+						'display' : "inherit"
 					}
 				}else{
 					$scope.usefulness_style = {
@@ -140,6 +146,9 @@ courseApp.controller('courseController', function($scope, $http, ipCookie){
 					numberOfParts++;
 					$scope.difficulty_bar = {
 						'width' : difficultyPercent+"%"
+					}
+					$scope.difficulty_style = {
+						'display' : "inherit"
 					}
 				}else{
 					$scope.difficulty_style = {
@@ -155,6 +164,9 @@ courseApp.controller('courseController', function($scope, $http, ipCookie){
 					$scope.exam_bar = {
 						'width' : examPercent+"%"
 					}
+					$scope.exam_style = {
+						'display' : "inherit"
+					}
 				}else{
 					$scope.exam_style = {
 						'display' : "none"
@@ -167,6 +179,9 @@ courseApp.controller('courseController', function($scope, $http, ipCookie){
 					numberOfParts++;
 					$scope.lecture_bar = {
 						'width' : lecturePercent+"%"
+					}
+					$scope.usefulness_style = {
+						'display' : "inherit"
 					}
 				}else{
 					$scope.lecture_style = {
@@ -181,6 +196,9 @@ courseApp.controller('courseController', function($scope, $http, ipCookie){
 					$scope.lesson_bar = {
 						'width' : lessonPercent+"%"
 					}
+					$scope.lesson_style = {
+						'display' : "inherit"
+					}
 				}else{
 					$scope.lesson_style = {
 						'display' : "none"
@@ -193,6 +211,9 @@ courseApp.controller('courseController', function($scope, $http, ipCookie){
 					numberOfParts++;
 					$scope.laboratory_bar = {
 						'width' : laboratoryPercent+"%"
+					}
+					$scope.laboratory_style = {
+						'display' : "inherit"
 					}
 				}else{
 					$scope.laboratory_style = {
@@ -207,6 +228,9 @@ courseApp.controller('courseController', function($scope, $http, ipCookie){
 					$scope.seminar_bar = {
 						'width' : seminarPercent+"%"
 					}
+					$scope.seminar_style = {
+						'display' : "inherit"
+					}
 				}else{
 					$scope.seminar_style = {
 						'display' : "none"
@@ -219,6 +243,9 @@ courseApp.controller('courseController', function($scope, $http, ipCookie){
 					numberOfParts++;
 					$scope.project_bar = {
 						'width' : projectPercent+"%"
+					}
+					$scope.project_style = {
+						'display' : "inherit"
 					}
 				}else{
 					$scope.project_style={
@@ -233,6 +260,9 @@ courseApp.controller('courseController', function($scope, $http, ipCookie){
 					$scope.homeassignment_bar = {
 						'width' : homePercent+"%"
 					}
+					$scope.homeassignment_style = {
+						'display' : "inherit"
+					}
 				}else{
 					$scope.homeassignment_style = {
 						'display' : "none"
@@ -245,6 +275,9 @@ courseApp.controller('courseController', function($scope, $http, ipCookie){
 					numberOfParts++;
 					$scope.case_bar = {
 						'width' : casePercent+"%"
+					}
+					$scope.case_style = {
+						'display' : "inherit"
 					}
 				}else{
 					$scope.case_style = {
