@@ -46,7 +46,7 @@ courseApp.controller('homeController', function($scope, $http, ipCookie){
                         $scope.message_register="Failed to send activation email";
 
                     }else if(response=="emailSent"){
-                        $scope.message_register="Activation email sent!";
+                        $scope.message_register="Activation email sent! The email can be placed in your junk folder";
 
                     }else if(response=="connectionFailed"){
                         $scope.message_register="Failed to connect to server";
