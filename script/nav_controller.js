@@ -1,4 +1,5 @@
 courseApp.controller('navController', function($scope, $location, $timeout, $http, user, ipCookie){
+
 	if(ipCookie('email')!==undefined){
 
 		$scope.login_form = {
@@ -39,8 +40,7 @@ courseApp.controller('navController', function($scope, $location, $timeout, $htt
 
 	$scope.login = function(email, password){
 
-
-		if(email!==undefined || password!==undefined){
+		if(email!==undefined && password!==undefined){
 			var data = {
 				'email': email,
 				'password': password

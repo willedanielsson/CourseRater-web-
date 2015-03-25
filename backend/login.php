@@ -57,7 +57,7 @@ if(mysqli_num_rows($result)>0){
 		}else{
 			//RÄtt lösen
 
-			$getInfoQuery = mysqli_query($con, "SELECT email, country, university FROM users");
+			$getInfoQuery = mysqli_query($con, "SELECT email, country, university FROM users WHERE email='$userEmail'");
 				$rows = array();
 
 				while($r = mysqli_fetch_assoc($getInfoQuery)){
@@ -79,7 +79,7 @@ if(mysqli_num_rows($result)>0){
 
 		}else{
 
-				$getInfoQuery = mysqli_query($con, "SELECT email, country, university FROM users");
+				$getInfoQuery = mysqli_query($con, "SELECT email, country, university FROM users WHERE email='$userEmail'");
 					$rows = array();
 
 					while($r = mysqli_fetch_assoc($getInfoQuery)){
