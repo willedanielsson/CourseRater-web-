@@ -280,8 +280,6 @@ user-select: none;
 .courses #course_information #course_rating .comments_list{
 	margin-left: 10px;
 	margin-right: 10px;
-
-	height: 300px;
 	overflow-y: scroll;
 }
 

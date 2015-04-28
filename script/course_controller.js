@@ -107,6 +107,7 @@ courseApp.controller('courseController', function($scope, $http, ipCookie){
 
 			$scope.course = course;
 			$http.get("backend/getCourseInformation.php?course="+course).success(function(response){
+				console.log(response);
 
 				//Check if there is no ratings
 				if(response.Ratings[0]['AVG(cI.usefulness)']==null ||

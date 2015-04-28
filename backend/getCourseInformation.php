@@ -85,34 +85,51 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 
 while($r = mysqli_fetch_assoc($examCommentQuery)){
-	$array['examComments'][] = $r;
+	if(trim($r['examComment']) != ""){
+		$array['examComments'][] = $r;
+	}
 }
 
 while($r = mysqli_fetch_assoc($lectureCommentQuery)){
-	$array['lectureComments'][] = $r;
+	if(trim($r['lectureComment']) != ""){
+		$array['lectureComments'][] = $r;
+	}
 }
+
 while($r = mysqli_fetch_assoc($lessonCommentQuery)){
-	$array['lessonComments'][] = $r;
+	if(trim($r['lessonComment']) != ""){
+		$array['lessonComments'][] = $r;
+	}
 }
 
 while($r = mysqli_fetch_assoc($laboratoryommentQuery)){
-	$array['laboratoryComments'][] = $r;
+	if(trim($r['laboratoryComment']) != ""){
+		$array['laboratoryComments'][] = $r;
+	}
 }
 
 while($r = mysqli_fetch_assoc($seminarCommentQuery)){
-	$array['seminarComments'][] = $r;
+	if(trim($r['seminarComment']) != ""){
+		$array['seminarComments'][] = $r;
+	}	
 }
 
 while($r = mysqli_fetch_assoc($projectCommentQuery)){
-	$array['projectComments'][] = $r;
+	if(trim($r['projectComment']) != ""){
+		$array['projectComments'][] = $r;
+	}	
 }
 
 while($r = mysqli_fetch_assoc($homeassignmentCommentQuery)){
-	$array['homeassignmentComments'][] = $r;
+	if(trim($r['homeassignmentComment']) != ""){
+		$array['homeassignmentComments'][] = $r;
+	}
 }
 
 while($r = mysqli_fetch_assoc($caseCommentQuery)){
-	$array['caseComments'][] = $r;
+	if(trim($r['caseComment']) != ""){
+		$array['caseComments'][] = $r;
+	}
 }
 
 
