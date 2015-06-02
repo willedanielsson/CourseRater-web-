@@ -1,5 +1,5 @@
 <div class="courses">
-
+<div itemscope itemtype="http://schema.org/Review">
 	<div id="course_selection">
 
 		<div class="course_div" id="input">
@@ -20,7 +20,7 @@
 				<select id="select_university" ng-model="model_selectedUniversity2" ng-style=styleSelectUniversity ng-change="getCourses(model_selectedUniversity2)" >
 					<option value="" disabled selected>{{preUniversity}}</option>
 					<option ng-repeat="university in universities">
-						{{university}}
+						<span itemprop="itemReviewed">{{university}}</span>
 					</option>
 				</select>
 
@@ -31,7 +31,7 @@
 				<select id="select_course" ng-model="model_course_input" ng-style="styleSelectCourse" ng-change="clickedCourse()">
 					<option value="" disables selected>Select Course</option>
 					<option ng-repeat="course in courses">
-						{{course}}
+						<span itemprop="itemReviewed">{{course}}</span>
 					</option>
 				</select>
 
@@ -71,7 +71,7 @@
 
 		<div id="course_rating" ng-switch-when="view">
 			<h1>{{course}}</h1>
-			<p class="general_rating">{{generalRating | number:1}}
+			<p class="general_rating"><span itemprop="reviewRating">{{generalRating | number:1}}</span></p>
 
 		
 
@@ -509,5 +509,5 @@
 			</div>
 		</div>	
 	</div>
-
+</div>
 </div>
