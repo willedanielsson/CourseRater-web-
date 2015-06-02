@@ -77,7 +77,7 @@
 	font-weight: bold;
 }
 
-.about p{
+.about p, .about span{
 	font-size: 15px;
 	margin-bottom: 10px;
 	line-height: 18px;
