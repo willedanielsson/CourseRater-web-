@@ -70,11 +70,10 @@
 		</div>
 
 		<div id="course_rating" ng-switch-when="view">
-			<h1>{{course}}</h1>
-			<p class="general_rating"><span itemprop="reviewRating">{{generalRating | number:1}}</span></p>
+			<h1><span itemprop="itemReviewed">{course}}</span></h1>
+			<p class="general_rating"><span itemprop="author">{{generalRating | number:1}}</span></p>
 
 		
-
 			<div id="add_review_button">
 				<a class="button" ng-click="addReview(model_course_input, model_selectedUniversity)">Add Rating</a>
 
