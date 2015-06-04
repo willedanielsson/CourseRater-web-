@@ -1,0 +1,26 @@
+@media (min-width: 1000px) {
+	.content{
+		width: 1000px;
+	}
+}
+
+
+@import url(http://fonts.googleapis.com/css?family=Capriola);
+body{
+	padding: 0;
+	margin:0;
+	background: #eeeeee;
+}
+
+body p, body h1, body h2, body a, body span, body label{
+	font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.content{
+	margin-right: auto;
+	margin-left: auto;
+
+	border: 1px solid black;
+	background-color: #F0FFFF;
+	
+}

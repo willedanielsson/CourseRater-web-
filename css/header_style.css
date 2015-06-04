@@ -1,26 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Capriola);
-body{
-	padding: 0;
-	margin:0;
-	background: #eeeeee;
-}
-
-body p, body h1, body h2, body a, body span, body label{
-	font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-
-.content{
-	margin-right: auto;
-	margin-left: auto;
-
-	width: 1000px;
-	border: 1px solid black;
-	background-color: #F0FFFF;
-	
-}
-
 #navigation{
-	height: 70px;
 	padding-bottom: 4px;
 
 	background-color: black;
@@ -34,7 +12,6 @@ body p, body h1, body h2, body a, body span, body label{
 
 
 #navigation ul{
-	display: inline-block;
 	float: left;
 	list-style-type: none;
 	margin: 0;
@@ -43,9 +20,8 @@ body p, body h1, body h2, body a, body span, body label{
 }
 
 #navigation li{
-	display: inline-block;
+	display: relative;
 
-	width: 150px;
 	margin-right: 4px;
 	
 	opacity: 0.6;
@@ -62,7 +38,6 @@ body p, body h1, body h2, body a, body span, body label{
 }
 
 #navigation .active{
-
 }
 
 #navigation #navigation_menu a{
@@ -75,11 +50,20 @@ body p, body h1, body h2, body a, body span, body label{
 	font-size: 25px;
 	color: #eeeeee;
 }
-#navigation #login_box{
-	position: relative;
+
+#navigation #navigation_menu li{
+	margin-right: 20px;
 }
+
+#navigation #login_box{
+
+}
+
+#navigation #login_box li{
+	opacity: 1.0;
+}
+
 #navigation #login_box #login_form{
-	display: inline-block;
 	margin-top: 10px;
 	float: right;
 }

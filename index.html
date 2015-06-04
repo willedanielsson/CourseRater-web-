@@ -11,6 +11,10 @@
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-animate.js"></script>
 	<script src="script/angular-cookie/angular-cookie.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript" src="script/main.js"></script>
 	<script type="text/javascript" src="script/nav_controller.js"></script>
@@ -21,6 +25,7 @@
 	<script type="text/javascript" src="script/home_controller.js"></script>
 	<script type="text/javascript" src="script/restore_controller.js"></script>
 
+	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/header_style.css">
 	<link rel="stylesheet" href="css/home.css">
 	<link rel="stylesheet" href="css/contact_about.css">
@@ -35,69 +40,82 @@
 
 <body ng-controller="homeController">
 
-<div class="content">
+<div class="content" class="container-fluid">
 
 	<header>
-		<nav id="navigation" ng-controller="navController">
+		<nav id="navigation" ng-controller="navController" class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>                        
+	    	  	</button>
+	    	</div>
 			
-			<ul id="navigation_menu">
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul id="navigation_menu" class="nav navbar-nav">
 
-				<li ng-class="{ active: isActive('/') }">
-					<a href="#">
-						<span class="fa fa-home"></span>
-						Home
-					</a>
-				</li>
-			
-				<li ng-class="{ active: isActive('/courses') }">
-					<a href="#courses">
-						<span class="fa fa-book"></span>
-						Courses
-					</a>
-				</li>
+					<li class="active">
+						<a href="#">
+							<span class="fa fa-home"></span>
+							Home
+						</a>
+					</li>
+				
+					<li>
+						<a href="#courses">
+							<span class="fa fa-book"></span>
+							Courses
+						</a>
+					</li>
 
-				<li ng-class="{ active: isActive('/about') }" > 
-					<a href="#about">
-						<span class="fa fa-info-circle"></span>
-						About
-					</a>
-				</li>
-			
+					<li> 
+						<a href="#about">
+							<span class="fa fa-info-circle"></span>
+							About
+						</a>
+					</li>
+				
 
-				<li ng-class="{ active: isActive('/contact') }" >
-					<a href="#contact">
-						<span class="fa fa-at"></span>
-						Contact
-					</a>
-				</li>
-			</ul>
+					<li id="last">
+						<a href="#contact">
+							<span class="fa fa-at"></span>
+							Contact
+						</a>
+					</li>
+				</ul>
 
-			<div id="login_box">
+				<ul id="login_box" class="nav navbar-nav navbar-right">
+					<li>
+						<form id="login_form" accept-charset="UTF-8" ng-style="login_form">
+							<div id="login_inputs">
+								<input type="email" ng-model="email" name="email" maxlength="50" placeholder="Email"/>
+								<input type="password" name="password" ng-model="password" id="password" maxlength="50" placeholder="Password" />
+							</div>
+							<div id="login_div">
+								<input class="button" id="login_button" ng-click="login(email, password)"type="submit" name="submit" value="Login" />
+								<a class="log_link" href="#">Register</a>
+							</div>
+						</form>
+					</li>
+					<li>
+					<div id="logged_in_box" ng-style="logged_in_box">
+						<p>{{userEmail}}</p>
 
-				<form id="login_form" accept-charset="UTF-8" ng-style="login_form">
-					<div id="login_inputs">
-						<input type="email" ng-model="email" name="email" maxlength="50" placeholder="Email"/>
-						<input type="password" name="password" ng-model="password" id="password" maxlength="50" placeholder="Password" />
+						<a id="logout_button" ng-click=logout() href="#">Logout</a>
+					</div>	
+					<div class="mess" id="login_mess" ng-style="login_message">
+						<p>Wrong credentials! After 4 failed attempts, you will be locked out for 10 minutes.</p>
+						<a href="#/restorePass">Forgot password?</a>
 					</div>
-					<div id="login_div">
-						<input class="button" id="login_button" ng-click="login(email, password)"type="submit" name="submit" value="Login" />
-						<a class="log_link" href="#">Register</a>
+					<div class="mess" id="locked_mess" ng-style="locked_message">
+						<p>You have been locked out for 10 minutes</p>
 					</div>
-				</form>
-
-				<div id="logged_in_box" ng-style="logged_in_box">
-					<p>{{userEmail}}</p>
-
-					<a id="logout_button" ng-click=logout() href="#">Logout</a>
-				</div>	
-				<div class="mess" id="login_mess" ng-style="login_message">
-					<p>Wrong credentials! After 4 failed attempts, you will be locked out for 10 minutes.</p>
-					<a href="#/restorePass">Forgot password?</a>
-				</div>
-				<div class="mess" id="locked_mess" ng-style="locked_message">
-					<p>You have been locked out for 10 minutes</p>
-				</div>
+					</li>
+				</ul>
 			</div>
+		</div>	
 		</nav>
 
 	</header>
