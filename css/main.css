@@ -4,6 +4,16 @@
 	}
 }
 
+@media (max-width: 768px){
+	#home_information{
+		text-align: left;
+		margin-top: 0;
+	}
+
+	#home_information #news{
+		margin-top: 10px;
+	}
+}
 
 @import url(http://fonts.googleapis.com/css?family=Capriola);
 body{

@@ -1,5 +1,5 @@
 .home{
-	-webkit-user-select: none;
+-webkit-user-select: none;
 -khtml-user-select: none;
 -moz-user-select: none;
 -ms-user-select: none;
@@ -12,10 +12,6 @@ user-select: none;
 }
 
 #home_information{
-	width: 400px;
-	
-
-	float: left;
 	margin-left: 50px;
 	margin-top: 50px;	
 	margin-bottom: 50px;
@@ -48,22 +44,13 @@ user-select: none;
 
 
 
-.form_div{
-	width: 400px;
-	float: right;
-
+#registration{
 	margin-right: 50px;
 	margin-top: 50px;
 	margin-bottom: 50px;
 
-	-webkit-border-radius: 8px/7px; 
-  	-moz-border-radius: 8px/7px; 
-	border-radius: 5px;
 	background-color: #F0FFFF; 
-	-webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
-	-moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
-	box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
-	border: solid 1px #cbc9c9;
+
 }
 .form_div h1{
 	font-size: 25px;
@@ -89,8 +76,6 @@ user-select: none;
 	
 	margin-top: 10px;
 	padding-left: 10px;
-	margin-left: -5px;
-
 	
 	-webkit-border-radius: 5px;
   	-moz-border-radius: 5px;
@@ -102,7 +87,6 @@ user-select: none;
 	border: solid 1px #cbc9c9; 
 }
 .form_div .form_form .form_item select{
-	width: 313px;
 	color: #999;
 }
 
